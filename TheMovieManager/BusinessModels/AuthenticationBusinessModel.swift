@@ -31,7 +31,7 @@ final class AuthenticationBusinessModel: BaseBusinessModel {
 	}
 	
 	deinit {
-		print("\(#function) \(String(describing: self))")
+		LOG("\(#function) \(String(describing: self))")
 	}
 }
 

@@ -32,12 +32,12 @@ final class LoginPresentationModel: BasePresentationModel {
 	// MARK: - initialize with businessModel(s)
 	init(with authentication: AuthenticationBusinessModelProtocol) {
 		self.authentication = authentication
-		self.authentication.delegate = self
 		super.init()
+		self.authentication.delegate = self
 	}
 
 	deinit {
-		print("\(#function) \(String(describing: self))")
+		LOG("\(#function) \(String(describing: self))")
 	}
 	
 	/// you should fire ´sceneLoadingHandler´ after loading process completed. 

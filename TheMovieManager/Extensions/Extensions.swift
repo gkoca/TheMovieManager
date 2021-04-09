@@ -13,3 +13,9 @@ extension UIStoryboard {
 		return instantiateViewController(withIdentifier: identifier) as! T
 	}
 }
+
+extension Bundle {
+	func infoForKey(_ key: String) -> String? {
+		return (infoDictionary?[key] as? String)?.replacingOccurrences(of: "\\", with: "")
+	}
+}

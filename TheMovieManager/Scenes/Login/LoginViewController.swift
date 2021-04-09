@@ -29,7 +29,7 @@ final class LoginViewController: BaseViewController {
 	// MARK: - custom methods
 	
 	deinit {
-		print("\(#function) \(String(describing: self))")
+		LOG("\(#function) \(String(describing: self))")
 	}
 }
 
