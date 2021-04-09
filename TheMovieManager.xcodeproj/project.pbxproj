@@ -22,6 +22,14 @@
 		E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC562620CB1A008C2888 /* BaseBuilder.swift */; };
 		E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC5A2620CB23008C2888 /* BaseViewController.swift */; };
 		E81EFC5F2620CBB7008C2888 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC5E2620CBB7008C2888 /* main.swift */; };
+		E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */; };
+		E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC7A2620CF95008C2888 /* Extensions.swift */; };
+		E81EFC882620D05C008C2888 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFC822620D05C008C2888 /* Login.storyboard */; };
+		E81EFC892620D05C008C2888 /* LoginPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC832620D05C008C2888 /* LoginPresentationModel.swift */; };
+		E81EFC8A2620D05C008C2888 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC842620D05C008C2888 /* LoginRouter.swift */; };
+		E81EFC8B2620D05C008C2888 /* LoginContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC852620D05C008C2888 /* LoginContracts.swift */; };
+		E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC862620D05C008C2888 /* LoginViewController.swift */; };
+		E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC872620D05C008C2888 /* LoginBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +64,14 @@
 		E81EFC562620CB1A008C2888 /* BaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
 		E81EFC5A2620CB23008C2888 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E81EFC5E2620CBB7008C2888 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBusinessModel.swift; sourceTree = "<group>"; };
+		E81EFC7A2620CF95008C2888 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E81EFC822620D05C008C2888 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		E81EFC832620D05C008C2888 /* LoginPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresentationModel.swift; sourceTree = "<group>"; };
+		E81EFC842620D05C008C2888 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		E81EFC852620D05C008C2888 /* LoginContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContracts.swift; sourceTree = "<group>"; };
+		E81EFC862620D05C008C2888 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E81EFC872620D05C008C2888 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,9 @@
 		E81EFBEA2620C7C3008C2888 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
+				E81EFC792620CF76008C2888 /* Extensions */,
+				E81EFC722620CE43008C2888 /* BusinessModels */,
+				E81EFC622620CE18008C2888 /* Scenes */,
 				E81EFC292620C908008C2888 /* Configurations */,
 				E81EFC242620C88D008C2888 /* Resources */,
 				E81EFC232620C882008C2888 /* Application */,
@@ -165,6 +184,43 @@
 				E81EFC5A2620CB23008C2888 /* BaseViewController.swift */,
 			);
 			path = BaseProtocols;
+			sourceTree = "<group>";
+		};
+		E81EFC622620CE18008C2888 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC632620CE27008C2888 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E81EFC632620CE27008C2888 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC822620D05C008C2888 /* Login.storyboard */,
+				E81EFC832620D05C008C2888 /* LoginPresentationModel.swift */,
+				E81EFC842620D05C008C2888 /* LoginRouter.swift */,
+				E81EFC852620D05C008C2888 /* LoginContracts.swift */,
+				E81EFC862620D05C008C2888 /* LoginViewController.swift */,
+				E81EFC872620D05C008C2888 /* LoginBuilder.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E81EFC722620CE43008C2888 /* BusinessModels */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */,
+			);
+			path = BusinessModels;
+			sourceTree = "<group>";
+		};
+		E81EFC792620CF76008C2888 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC7A2620CF95008C2888 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +305,7 @@
 			files = (
 				E81EFBF82620C7C4008C2888 /* LaunchScreen.storyboard in Resources */,
 				E81EFBF52620C7C4008C2888 /* Assets.xcassets in Resources */,
+				E81EFC882620D05C008C2888 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,13 +324,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */,
+				E81EFC892620D05C008C2888 /* LoginPresentationModel.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
+				E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */,
 				E81EFC5F2620CBB7008C2888 /* main.swift in Sources */,
 				E81EFC532620CB0B008C2888 /* BaseRouter.swift in Sources */,
 				E81EFC452620CAAA008C2888 /* BaseContracts.swift in Sources */,
 				E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */,
 				E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */,
+				E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */,
+				E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */,
 				E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */,
+				E81EFC8B2620D05C008C2888 /* LoginContracts.swift in Sources */,
+				E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */,
+				E81EFC8A2620D05C008C2888 /* LoginRouter.swift in Sources */,
 				E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
