@@ -31,6 +31,9 @@
 		E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC862620D05C008C2888 /* LoginViewController.swift */; };
 		E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC872620D05C008C2888 /* LoginBuilder.swift */; };
 		E81EFC922620D76D008C2888 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC912620D76D008C2888 /* Logger.swift */; };
+		E81EFC992620DCD6008C2888 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC982620DCD6008C2888 /* Session.swift */; };
+		E81EFC9D2620DCEF008C2888 /* Caller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC9C2620DCEF008C2888 /* Caller.swift */; };
+		E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCA02620DDD6008C2888 /* Loading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		E81EFC862620D05C008C2888 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E81EFC872620D05C008C2888 /* LoginBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBuilder.swift; sourceTree = "<group>"; };
 		E81EFC912620D76D008C2888 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E81EFC982620DCD6008C2888 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		E81EFC9C2620DCEF008C2888 /* Caller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caller.swift; sourceTree = "<group>"; };
+		E81EFCA02620DDD6008C2888 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		E81EFBEA2620C7C3008C2888 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
+				E81EFC972620DC97008C2888 /* Networking */,
 				E81EFC232620C882008C2888 /* Application */,
 				E81EFC722620CE43008C2888 /* BusinessModels */,
 				E81EFC292620C908008C2888 /* Configurations */,
@@ -230,8 +237,18 @@
 			isa = PBXGroup;
 			children = (
 				E81EFC912620D76D008C2888 /* Logger.swift */,
+				E81EFCA02620DDD6008C2888 /* Loading.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E81EFC972620DC97008C2888 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC982620DCD6008C2888 /* Session.swift */,
+				E81EFC9C2620DCEF008C2888 /* Caller.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,14 +353,17 @@
 			files = (
 				E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */,
 				E81EFC892620D05C008C2888 /* LoginPresentationModel.swift in Sources */,
+				E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
 				E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */,
 				E81EFC5F2620CBB7008C2888 /* main.swift in Sources */,
 				E81EFC532620CB0B008C2888 /* BaseRouter.swift in Sources */,
 				E81EFC452620CAAA008C2888 /* BaseContracts.swift in Sources */,
 				E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */,
+				E81EFC992620DCD6008C2888 /* Session.swift in Sources */,
 				E81EFC922620D76D008C2888 /* Logger.swift in Sources */,
 				E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */,
+				E81EFC9D2620DCEF008C2888 /* Caller.swift in Sources */,
 				E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */,
 				E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */,
 				E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */,
