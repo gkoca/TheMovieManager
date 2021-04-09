@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFBEB2620C7C3008C2888 /* AppDelegate.swift */; };
 		E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFBED2620C7C3008C2888 /* SceneDelegate.swift */; };
-		E81EFBF02620C7C3008C2888 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFBEF2620C7C3008C2888 /* ViewController.swift */; };
-		E81EFBF32620C7C3008C2888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFBF12620C7C3008C2888 /* Main.storyboard */; };
 		E81EFBF52620C7C4008C2888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E81EFBF42620C7C4008C2888 /* Assets.xcassets */; };
 		E81EFBF82620C7C4008C2888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFBF62620C7C4008C2888 /* LaunchScreen.storyboard */; };
 		E81EFC032620C7C4008C2888 /* TheMovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC022620C7C4008C2888 /* TheMovieManagerTests.swift */; };
+		E81EFC332620CA16008C2888 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC322620CA16008C2888 /* TestAppDelegate.swift */; };
+		E81EFC3A2620CA40008C2888 /* TestSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC392620CA40008C2888 /* TestSceneDelegate.swift */; };
+		E81EFC402620CA62008C2888 /* TestRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC3F2620CA62008C2888 /* TestRootViewController.swift */; };
+		E81EFC452620CAAA008C2888 /* BaseContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC442620CAAA008C2888 /* BaseContracts.swift */; };
+		E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC4A2620CAF7008C2888 /* BaseBusinessModel.swift */; };
+		E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC4E2620CB02008C2888 /* BasePresentationModel.swift */; };
+		E81EFC532620CB0B008C2888 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC522620CB0B008C2888 /* BaseRouter.swift */; };
+		E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC562620CB1A008C2888 /* BaseBuilder.swift */; };
+		E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC5A2620CB23008C2888 /* BaseViewController.swift */; };
+		E81EFC5F2620CBB7008C2888 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFC5E2620CBB7008C2888 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +38,24 @@
 		E81EFBE82620C7C3008C2888 /* TheMovieManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81EFBEB2620C7C3008C2888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E81EFBED2620C7C3008C2888 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E81EFBEF2620C7C3008C2888 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E81EFBF22620C7C3008C2888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E81EFBF42620C7C4008C2888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E81EFBF72620C7C4008C2888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E81EFBF92620C7C4008C2888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E81EFBFE2620C7C4008C2888 /* TheMovieManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81EFC022620C7C4008C2888 /* TheMovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieManagerTests.swift; sourceTree = "<group>"; };
 		E81EFC042620C7C4008C2888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E81EFC2B2620C957008C2888 /* DEBUG.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DEBUG.xcconfig; sourceTree = "<group>"; };
+		E81EFC2C2620C965008C2888 /* RELEASE.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RELEASE.xcconfig; sourceTree = "<group>"; };
+		E81EFC322620CA16008C2888 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
+		E81EFC392620CA40008C2888 /* TestSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSceneDelegate.swift; sourceTree = "<group>"; };
+		E81EFC3F2620CA62008C2888 /* TestRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRootViewController.swift; sourceTree = "<group>"; };
+		E81EFC442620CAAA008C2888 /* BaseContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContracts.swift; sourceTree = "<group>"; };
+		E81EFC4A2620CAF7008C2888 /* BaseBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBusinessModel.swift; sourceTree = "<group>"; };
+		E81EFC4E2620CB02008C2888 /* BasePresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresentationModel.swift; sourceTree = "<group>"; };
+		E81EFC522620CB0B008C2888 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		E81EFC562620CB1A008C2888 /* BaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
+		E81EFC5A2620CB23008C2888 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E81EFC5E2620CBB7008C2888 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +97,9 @@
 		E81EFBEA2620C7C3008C2888 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
-				E81EFBEB2620C7C3008C2888 /* AppDelegate.swift */,
-				E81EFBED2620C7C3008C2888 /* SceneDelegate.swift */,
-				E81EFBEF2620C7C3008C2888 /* ViewController.swift */,
-				E81EFBF12620C7C3008C2888 /* Main.storyboard */,
-				E81EFBF42620C7C4008C2888 /* Assets.xcassets */,
-				E81EFBF62620C7C4008C2888 /* LaunchScreen.storyboard */,
-				E81EFBF92620C7C4008C2888 /* Info.plist */,
+				E81EFC292620C908008C2888 /* Configurations */,
+				E81EFC242620C88D008C2888 /* Resources */,
+				E81EFC232620C882008C2888 /* Application */,
 			);
 			path = TheMovieManager;
 			sourceTree = "<group>";
@@ -93,10 +107,64 @@
 		E81EFC012620C7C4008C2888 /* TheMovieManagerTests */ = {
 			isa = PBXGroup;
 			children = (
+				E81EFC312620C9EE008C2888 /* TestApplication */,
 				E81EFC022620C7C4008C2888 /* TheMovieManagerTests.swift */,
 				E81EFC042620C7C4008C2888 /* Info.plist */,
 			);
 			path = TheMovieManagerTests;
+			sourceTree = "<group>";
+		};
+		E81EFC232620C882008C2888 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC432620CA7D008C2888 /* BaseProtocols */,
+				E81EFBEB2620C7C3008C2888 /* AppDelegate.swift */,
+				E81EFBED2620C7C3008C2888 /* SceneDelegate.swift */,
+				E81EFC5E2620CBB7008C2888 /* main.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E81EFC242620C88D008C2888 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFBF42620C7C4008C2888 /* Assets.xcassets */,
+				E81EFBF62620C7C4008C2888 /* LaunchScreen.storyboard */,
+				E81EFBF92620C7C4008C2888 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E81EFC292620C908008C2888 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC2B2620C957008C2888 /* DEBUG.xcconfig */,
+				E81EFC2C2620C965008C2888 /* RELEASE.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		E81EFC312620C9EE008C2888 /* TestApplication */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC322620CA16008C2888 /* TestAppDelegate.swift */,
+				E81EFC3F2620CA62008C2888 /* TestRootViewController.swift */,
+				E81EFC392620CA40008C2888 /* TestSceneDelegate.swift */,
+			);
+			path = TestApplication;
+			sourceTree = "<group>";
+		};
+		E81EFC432620CA7D008C2888 /* BaseProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFC442620CAAA008C2888 /* BaseContracts.swift */,
+				E81EFC4A2620CAF7008C2888 /* BaseBusinessModel.swift */,
+				E81EFC4E2620CB02008C2888 /* BasePresentationModel.swift */,
+				E81EFC522620CB0B008C2888 /* BaseRouter.swift */,
+				E81EFC562620CB1A008C2888 /* BaseBuilder.swift */,
+				E81EFC5A2620CB23008C2888 /* BaseViewController.swift */,
+			);
+			path = BaseProtocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,7 +249,6 @@
 			files = (
 				E81EFBF82620C7C4008C2888 /* LaunchScreen.storyboard in Resources */,
 				E81EFBF52620C7C4008C2888 /* Assets.xcassets in Resources */,
-				E81EFBF32620C7C3008C2888 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E81EFBF02620C7C3008C2888 /* ViewController.swift in Sources */,
+				E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
+				E81EFC5F2620CBB7008C2888 /* main.swift in Sources */,
+				E81EFC532620CB0B008C2888 /* BaseRouter.swift in Sources */,
+				E81EFC452620CAAA008C2888 /* BaseContracts.swift in Sources */,
+				E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */,
+				E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */,
+				E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */,
 				E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81EFC332620CA16008C2888 /* TestAppDelegate.swift in Sources */,
+				E81EFC3A2620CA40008C2888 /* TestSceneDelegate.swift in Sources */,
+				E81EFC402620CA62008C2888 /* TestRootViewController.swift in Sources */,
 				E81EFC032620C7C4008C2888 /* TheMovieManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,14 +300,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E81EFBF12620C7C3008C2888 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E81EFBF22620C7C3008C2888 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E81EFBF62620C7C4008C2888 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -245,6 +313,7 @@
 /* Begin XCBuildConfiguration section */
 		E81EFC102620C7C4008C2888 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81EFC2B2620C957008C2888 /* DEBUG.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -306,6 +375,7 @@
 		};
 		E81EFC112620C7C4008C2888 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E81EFC2C2620C965008C2888 /* RELEASE.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -366,7 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K35J6EG8VZ;
-				INFOPLIST_FILE = TheMovieManager/Info.plist;
+				INFOPLIST_FILE = TheMovieManager/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,7 +455,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K35J6EG8VZ;
-				INFOPLIST_FILE = TheMovieManager/Info.plist;
+				INFOPLIST_FILE = TheMovieManager/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
