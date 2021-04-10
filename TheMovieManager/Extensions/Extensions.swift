@@ -19,3 +19,10 @@ extension Bundle {
 		return (infoDictionary?[key] as? String)?.replacingOccurrences(of: "\\", with: "")
 	}
 }
+
+extension URL {
+	init(forceString string: String) {
+		guard let url = URL(string: string) else { fatalError("Could not init URL '\(string)'") }
+		self = url
+	}
+}

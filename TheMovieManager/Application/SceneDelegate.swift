@@ -14,13 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene,
 			   willConnectTo session: UISceneSession,
 			   options connectionOptions: UIScene.ConnectionOptions) {
-		LoginBuilder.build { viewController in
-			guard let windowScene = (scene as? UIWindowScene) else { return }
-			let window = UIWindow(windowScene: windowScene)
-			let navigationController = UINavigationController(rootViewController: viewController)
-			window.rootViewController = navigationController
-			self.window = window
-			self.window?.makeKeyAndVisible()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+			LoginBuilder.build { viewController in
+				guard let windowScene = (scene as? UIWindowScene) else { return }
+				let window = UIWindow(windowScene: windowScene)
+				let navigationController = UINavigationController(rootViewController: viewController)
+				window.rootViewController = navigationController
+				self.window = window
+				self.window?.makeKeyAndVisible()
+			}
 		}
 	}
 }
