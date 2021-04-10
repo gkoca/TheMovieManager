@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthenticationBusinessModelProtocol: BaseBusinessModelProtocol {
 	var delegate: AuthenticationBusinessModelDelegate? { get set }
-	func getNewToken()
+	func login(username: String, password: String)
 }
 
 protocol AuthenticationBusinessModelDelegate: BaseBusinessModelDelegate {
@@ -17,7 +17,8 @@ protocol AuthenticationBusinessModelDelegate: BaseBusinessModelDelegate {
 }
 
 enum AuthenticationBusinessModelOutput {
-	case didGetToken(token: String, expiration: Date)
+	case loginFailed(message: String)
+	case loginSuccess
 }
 
 final class AuthenticationBusinessModel: BaseBusinessModel {
@@ -38,16 +39,27 @@ final class AuthenticationBusinessModel: BaseBusinessModel {
 
 // MARK: - AuthenticationBusinessModelProtocol methods
 extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
-	func getNewToken() {
-		API.createRequestToken.call { [weak self] (response: CreateRequestTokenResponse?, error) in
-			let formatter = DateFormatter()
-			formatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
-			if let token = response?.token,
-			   let expiration = response?.expiration,
-			   let expirationDate = formatter.date(from: expiration) {
-				AppContext.main.requestToken = token
-				AppContext.main.requestTokenExpiration = expirationDate
-				self?.delegate?.handleOutput(.didGetToken(token: token, expiration: expirationDate))
+	func login(username: String, password: String) {
+		TMDBHelper.shared.createRequestToken { [weak self] (isSuccess, responseMessage) in
+			if isSuccess {
+				API.validateWithLogin(
+					userName: username,
+					password: password,
+					requestToken: responseMessage).call { (response: CreateRequestTokenResponse?, error) in
+						if response?.success ?? false, let token = response?.token {
+							TMDBHelper.shared.createSession(with: token) { (isSuccess2, responseMessage2) in
+								if isSuccess {
+									self?.delegate?.handleOutput(.loginSuccess)
+								} else {
+									self?.delegate?.handleOutput(.loginFailed(message: responseMessage2))
+								}
+							}
+						} else {
+							self?.delegate?.handleOutput(.loginFailed(message: response?.statusMessage ?? "unknown error"))
+						}
+					}
+			} else {
+				self?.delegate?.handleOutput(.loginFailed(message: responseMessage))
 			}
 		}
 	}

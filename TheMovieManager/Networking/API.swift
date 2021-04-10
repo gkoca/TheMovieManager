@@ -11,6 +11,7 @@ enum API: Caller {
 	
 	case createRequestToken
 	case createSession(requestToken: String)
+	case validateWithLogin(userName: String, password: String, requestToken: String)
 	
 	var apiKey: String? {
 		return Bundle.main.infoForKey("API_KEY")
@@ -27,6 +28,8 @@ enum API: Caller {
 			return "/authentication/token/new"
 		case .createSession:
 			return "/authentication/session/new"
+		case .validateWithLogin:
+			return "authentication/token/validate_with_login"
 		}
 	}
 	
@@ -35,7 +38,12 @@ enum API: Caller {
 		case .createRequestToken:
 			return .get
 		case .createSession:
-			//			return .post // api documentation says that this request should be `post` but apparently it is not
+			// return .post // api documentation says that this request should be `post` but apparently it is not
+			return .get
+		case .validateWithLogin:
+			// return .post
+			// https://www.themoviedb.org/talk/5eb5da430cb3350020cbf669#last
+			// this is major api issue. api does not provide post request for login **facepalm**
 			return .get
 		}
 	}
@@ -44,6 +52,12 @@ enum API: Caller {
 		switch self {
 		case .createSession(let token):
 			return ["request_token":token]
+		case .validateWithLogin(let userName, let password, let token):
+			return [
+				"request_token":token,
+				"username" : userName,
+				"password": password
+			]
 		default:
 			return [:]
 		}
@@ -54,7 +68,10 @@ enum API: Caller {
 		case .createRequestToken:
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		case .createSession:
-			//			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+			// return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
+		case .validateWithLogin:
+			// return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		}
 	}

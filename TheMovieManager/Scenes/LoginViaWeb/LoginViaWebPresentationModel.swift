@@ -56,10 +56,12 @@ extension LoginViaWebPresentationModel: LoginViaWebPresentationModelProtocol {
 	}
 	
 	func createSession() {
-		TMDBHelper.shared.createSession(with: requestToken) { [weak self] (isSuccess) in
+		TMDBHelper.shared.createSession(with: requestToken) { [weak self] (isSuccess, responseMessage) in
 			if isSuccess {
 				self?.delegate?.sessionCreated()
 				self?.viewController?.handleOutput(.sessionCreated)
+			} else {
+				self?.viewController?.didFailure(errorText: responseMessage)
 			}
 		}
 	}

@@ -18,18 +18,21 @@ final class LoginViewController: BaseViewController {
 	}
 	
 	// MARK: - ui controls
-	@IBOutlet weak var emailTextField: UITextField!
+	@IBOutlet weak var usernameTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
 	
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		presentationModel?.viewDidLoad()
 	}
 	
 	// MARK: - custom methods
 	@IBAction func loginButtonAction(_ sender: UIButton) {
-		
+		if let username = usernameTextField.text, let password = passwordTextField.text {
+			usernameTextField.resignFirstResponder()
+			passwordTextField.resignFirstResponder()
+			presentationModel?.login(username: username, password: password)
+		}
 	}
 	
 	@IBAction func loginViaWebButtonAction(_ sender: UIButton) {

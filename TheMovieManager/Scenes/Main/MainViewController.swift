@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: BaseViewController {
+final class MainViewController: BaseTabbarController {
 	var presentationModel: MainPresentationModelProtocol? {
 		get {
 			return self.basePresentationModel as? MainPresentationModelProtocol
@@ -26,6 +26,7 @@ final class MainViewController: BaseViewController {
 		super.viewDidLoad()
 	}
 
+	
 	// MARK: - custom methods
 }
 

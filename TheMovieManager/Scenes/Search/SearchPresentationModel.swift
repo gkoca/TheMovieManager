@@ -1,5 +1,5 @@
 //
-//  MainPresentationModel.swift
+//  SearchPresentationModel.swift
 //  TheMovieManager
 //
 //  Created by Gökhan KOCA on 10.04.2021.
@@ -7,19 +7,19 @@
 
 import UIKit
 
-final class MainPresentationModel: BasePresentationModel {
+final class SearchPresentationModel: BasePresentationModel {
 	
-	weak var viewController: MainViewControllerProtocol? {
+	weak var viewController: SearchViewControllerProtocol? {
 		get {
-			return self.baseViewController as? MainViewControllerProtocol
+			return self.baseViewController as? SearchViewControllerProtocol
 		}
 		set {
 			self.baseViewController = newValue
 		}
 	}
-	var router: MainRouterProtocol? {
+	var router: SearchRouterProtocol? {
 		get {
-			return self.baseRouter as?  MainRouterProtocol
+			return self.baseRouter as?  SearchRouterProtocol
 		}
 		set {
 			self.baseRouter = newValue
@@ -34,10 +34,10 @@ final class MainPresentationModel: BasePresentationModel {
 
 	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
-	func loadScene(completion: @escaping ((MainViewController) -> Void)) {
-		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-		let viewController: MainViewController = storyBoard.instantiateViewController()
-		let router = MainRouter(viewController: viewController)
+	func loadScene(completion: @escaping ((SearchViewController) -> Void)) {
+		let storyBoard = UIStoryboard(name: "Search", bundle: nil)
+		let viewController: SearchViewController = storyBoard.instantiateViewController()
+		let router = SearchRouter(viewController: viewController)
 		self.viewController = viewController
 		self.router = router
 		viewController.presentationModel = self
@@ -45,18 +45,13 @@ final class MainPresentationModel: BasePresentationModel {
 		sceneLoadingHandler = {
 			completion(viewController)
 		}
-		
 		// start loading process here
-	}
-	
-	func createTabScenes() {
-		
-	}
+	} 
 }
 
-// MARK: - MainPresentationModelProtocol methods
-extension MainPresentationModel: MainPresentationModelProtocol {
-	func navigate(_ route: MainRoutes) {
+// MARK: - SearchPresentationModelProtocol methods
+extension SearchPresentationModel: SearchPresentationModelProtocol {
+	func navigate(_ route: SearchRoutes) {
 		router?.navigate(route)
 	}
 }

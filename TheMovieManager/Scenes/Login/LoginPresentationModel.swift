@@ -53,15 +53,17 @@ final class LoginPresentationModel: BasePresentationModel {
 // MARK: - LoginPresentationModelProtocol methods
 extension LoginPresentationModel: LoginPresentationModelProtocol {
 	func presentWebLogin() {
-		TMDBHelper.shared.createRequestToken { [weak self] (isSuccess, token) in
-			if isSuccess, let token = token {
-				self?.navigate(.webLogin(token: token, delegate: self))
+		TMDBHelper.shared.createRequestToken { [weak self] (isSuccess, responseMessage) in
+			if isSuccess {
+				self?.navigate(.webLogin(token: responseMessage, delegate: self))
+			} else {
+				self?.viewController?.didFailure(errorText: responseMessage)
 			}
 		}
 	}
 	
-	func viewDidLoad() {
-		
+	func login(username: String, password: String) {
+		authentication.login(username: username, password: password)
 	}
 	
 	func navigate(_ route: LoginRoutes) {
@@ -73,9 +75,10 @@ extension LoginPresentationModel: LoginPresentationModelProtocol {
 extension LoginPresentationModel: AuthenticationBusinessModelDelegate {
 	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
 		switch output {
-		case .didGetToken(token: let token, expiration: let expiration):
-			LOG("token: \(token)")
-			LOG("expiration: \(expiration)")
+		case .loginFailed(let message):
+			viewController?.didFailure(errorText: message)
+		case .loginSuccess:
+			navigate(.main)
 		}
 	}
 }

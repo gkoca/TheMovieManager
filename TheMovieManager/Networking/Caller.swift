@@ -167,7 +167,8 @@ extension Caller {
 		let requesting = requestCounter
 		requestCounter += 1
 		LOG("<----- REQUESTING \(String(format: "%06d", requesting))----->")
-		LOG("URL: \(urlRequest.url?.absoluteString ?? "")")
+		LOG("URL: \(urlRequest.url?.absoluteString ?? "-")")
+		LOG("METHOD: \(urlRequest.httpMethod ?? "-")")
 		printData(urlRequest.httpBody)
 		LOG("<-------- REQUESTING -------->")
 		

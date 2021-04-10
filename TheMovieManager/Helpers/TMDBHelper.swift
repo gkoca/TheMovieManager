@@ -13,23 +13,25 @@ class TMDBHelper {
 	
 	var sessionId: String?
 	
-	func createRequestToken(completion: @escaping (Bool, String?) -> Void) {
+	func createRequestToken(completion: @escaping (Bool, String) -> Void) {
 		API.createRequestToken.call { (response: CreateRequestTokenResponse?, error) in
 			if let token = response?.token {
 				completion(true, token)
 			} else {
-				completion(false, nil)
+				let responseMessage = response?.statusMessage ?? "unknown error"
+				completion(false, responseMessage)
 			}
 		}
 	}
 	
-	func createSession(with token: String, completion: @escaping (Bool) -> Void) {
+	func createSession(with token: String, completion: @escaping (Bool, String) -> Void) {
 		API.createSession(requestToken: token).call { (response: CreateSessionResponse?, error) in
 			if response?.success ?? false, let sessionId = response?.sessionId {
 				self.sessionId = sessionId
-				completion(true)
+				completion(true, sessionId)
 			} else {
-				completion(false)
+				let responseMessage = response?.statusMessage ?? "unknown error"
+				completion(false, responseMessage)
 			}
 		}
 	}
