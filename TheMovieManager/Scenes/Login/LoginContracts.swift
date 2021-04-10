@@ -13,6 +13,7 @@ protocol LoginPresentationModelProtocol: BasePresentationModelProtocol {
 	var router: LoginRouterProtocol? { get set }
 	func navigate(_ route: LoginRoutes)
 	func viewDidLoad()
+	func presentWebLogin()
 }
 
 enum LoginPresentationModelOutput {
@@ -31,5 +32,11 @@ protocol LoginRouterProtocol: BaseRouterProtocol {
 }
 
 enum LoginRoutes {
-	
+	case webLogin(token: String)
+}
+
+enum LoginProcessType {
+	case none
+	case web
+	case app
 }

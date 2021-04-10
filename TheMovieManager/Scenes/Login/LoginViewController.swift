@@ -31,6 +31,10 @@ final class LoginViewController: BaseViewController {
 		super.viewDidLoad()
 		presentationModel?.viewDidLoad()
 	}
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.isNavigationBarHidden = true
+	}
 
 	// MARK: - custom methods
 	
@@ -40,7 +44,7 @@ final class LoginViewController: BaseViewController {
 	
 	
 	@IBAction func loginViaWebButtonAction(_ sender: UIButton) {
-		
+		presentationModel?.presentWebLogin()
 	}
 	
 	

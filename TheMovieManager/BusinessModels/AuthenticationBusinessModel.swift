@@ -45,6 +45,8 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 			if let token = response?.token,
 			   let expiration = response?.expiration,
 			   let expirationDate = formatter.date(from: expiration) {
+				AppContext.main.requestToken = token
+				AppContext.main.requestTokenExpiration = expirationDate
 				self?.delegate?.handleOutput(.didGetToken(token: token, expiration: expirationDate))
 			}
 		}

@@ -11,3 +11,4 @@
 LOG_LEVEL = 1
 BASE_URL = https:\/\/api.themoviedb.org\/3
 API_KEY = c0079fc82ed899d28062da1919b804be
+AUTHENTICATE = https:\/\/www.themoviedb.org\/authenticate

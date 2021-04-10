@@ -11,6 +11,7 @@ import Foundation
 protocol LoginViaWebPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: LoginViaWebViewControllerProtocol? { get set }
 	var router: LoginViaWebRouterProtocol? { get set }
+	var authenticationURL: URL { get }
 	func navigate(_ route: LoginViaWebRoutes)
 }
 

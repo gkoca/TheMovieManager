@@ -28,6 +28,8 @@ final class LoginPresentationModel: BasePresentationModel {
 	var sceneLoadingHandler: (() -> Void)?
 	
 	var authentication: AuthenticationBusinessModelProtocol
+	
+	var loginProcessType: LoginProcessType = .none
 
 	// MARK: - initialize with businessModel(s)
 	init(with authentication: AuthenticationBusinessModelProtocol) {
@@ -60,8 +62,16 @@ final class LoginPresentationModel: BasePresentationModel {
 
 // MARK: - LoginPresentationModelProtocol methods
 extension LoginPresentationModel: LoginPresentationModelProtocol {
+	func presentWebLogin() {
+		TMDBHelper.shared.getNewRequestToken { [weak self] (isSuccess, token) in
+			if isSuccess, let token = token {
+				self?.navigate(.webLogin(token: token))
+			}
+		}
+	}
+	
 	func viewDidLoad() {
-		authentication.getNewToken()
+		
 	}
 	
 	func navigate(_ route: LoginRoutes) {

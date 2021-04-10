@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 final class LoginViaWebViewController: BaseViewController {
 	var presentationModel: LoginViaWebPresentationModelProtocol? {
@@ -18,12 +19,18 @@ final class LoginViaWebViewController: BaseViewController {
 	}
 
 	// MARK: - ui controls
-
+	@IBOutlet weak var webView: WKWebView!
+	
 	// MARK: - members
 
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		webView.navigationDelegate = self
+		if let url = presentationModel?.authenticationURL {
+			let request = URLRequest(url: url)
+			webView.load(request)
+		}
 	}
 
 	// MARK: - custom methods
@@ -33,6 +40,20 @@ final class LoginViaWebViewController: BaseViewController {
 extension LoginViaWebViewController: LoginViaWebViewControllerProtocol {
 	func handleOutput(_ output:  LoginViaWebPresentationModelOutput) {
 		switch output {
+		}
+	}
+}
+
+extension LoginViaWebViewController: WKNavigationDelegate {
+	func webView(_ webView: WKWebView,
+				 decidePolicyFor navigationAction: WKNavigationAction,
+				 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		decisionHandler(.allow)
+	}
+	
+	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+		if let url = webView.url {
+			LOG("url \(url)")
 		}
 	}
 }

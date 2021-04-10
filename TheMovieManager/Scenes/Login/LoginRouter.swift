@@ -16,6 +16,22 @@ class LoginRouter: LoginRouterProtocol {
 
 	func navigate(_ route: LoginRoutes) {
 		switch route {
+		case .webLogin(let token):
+			if let authenticationBaseUrlString = Bundle.main.infoForKey("AUTHENTICATE") {
+				let authenticationUrlString = "\(authenticationBaseUrlString)/\(token)"
+				
+				let url = URL(forceString: authenticationUrlString)
+				
+				LoginViaWebBuilder.build(url: url) { (controller) in
+					
+					let navigationController = UINavigationController(rootViewController: controller)
+					
+					self.viewController.present(navigationController, animated: true)
+				}
+				
+			}
+			
+			break
 		}
 	}
 }

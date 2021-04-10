@@ -25,16 +25,16 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
-	var sceneLoadingHandler: (() -> Void)?
 	
+	
+	var authenticationURL: URL
 
 	// MARK: - initialize with businessModel(s)
-	init() {
+	init(with url: URL) {
+		self.authenticationURL = url
 		super.init()
 	}
 
-	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
-	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((LoginViaWebViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "LoginViaWeb", bundle: nil)
 		let viewController: LoginViaWebViewController = storyBoard.instantiateViewController()
@@ -43,10 +43,7 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 		self.router = router
 		viewController.presentationModel = self
 		viewController.loadViewIfNeeded()
-		sceneLoadingHandler = {
-			completion(viewController)
-		}
-		// start loading process here
+		completion(viewController)
 	} 
 }
 
