@@ -17,12 +17,10 @@ final class LoginViaWebViewController: BaseViewController {
 			self.basePresentationModel = newValue
 		}
 	}
-
+	
 	// MARK: - ui controls
 	@IBOutlet weak var webView: WKWebView!
 	
-	// MARK: - members
-
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -32,8 +30,11 @@ final class LoginViaWebViewController: BaseViewController {
 			webView.load(request)
 		}
 	}
-
-	// MARK: - custom methods
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		presentationModel?.viewDidDisappear()
+	}
 	
 	func addDoneButton() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))

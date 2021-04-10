@@ -16,40 +16,24 @@ final class LoginViewController: BaseViewController {
 			self.basePresentationModel = newValue
 		}
 	}
-
-	// MARK: - ui controls
 	
+	// MARK: - ui controls
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
 	
-	
-
-	// MARK: - members
-
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		presentationModel?.viewDidLoad()
 	}
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		navigationController?.isNavigationBarHidden = true
-	}
-
-	// MARK: - custom methods
 	
+	// MARK: - custom methods
 	@IBAction func loginButtonAction(_ sender: UIButton) {
 		
 	}
 	
-	
 	@IBAction func loginViaWebButtonAction(_ sender: UIButton) {
 		presentationModel?.presentWebLogin()
-	}
-	
-	
-	deinit {
-		LOG("\(#function) \(String(describing: self))")
 	}
 }
 

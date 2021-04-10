@@ -33,6 +33,7 @@ protocol LoginRouterProtocol: BaseRouterProtocol {
 
 enum LoginRoutes {
 	case webLogin(token: String, delegate: LoginViaWebSceneDelegate?)
+	case main
 }
 
 enum LoginProcessType {

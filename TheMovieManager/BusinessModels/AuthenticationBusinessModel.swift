@@ -21,7 +21,7 @@ enum AuthenticationBusinessModelOutput {
 }
 
 final class AuthenticationBusinessModel: BaseBusinessModel {
-
+	
 	weak var delegate: AuthenticationBusinessModelDelegate? {
 		get {
 			return self.baseDelegate as? AuthenticationBusinessModelDelegate

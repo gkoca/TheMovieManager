@@ -63,7 +63,7 @@ struct JSONParameterEncoder: ParameterEncoder {
 }
 
 public enum ParameterEncoding {
-
+	
 	case urlEncoding
 	case jsonEncoding
 	
@@ -108,12 +108,12 @@ extension Caller {
 	public func call<T: Decodable>(shoudShowLoading: Bool = true, completion: @escaping (T?, Error?) -> Void) {
 		call(createRequest(), shoudShowLoading: shoudShowLoading, completion: completion)
 	}
-
+	
 	private func createRequest() -> URLRequest {
 		var request = URLRequest(url: baseURL.appendingPathComponent(path))
 		request.httpMethod = method.rawValue
 		request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-
+		
 		switch task {
 		case .requestParameters(let parameters, let encoding):
 			encoding.encode(urlRequest: &request, parameters: parameters, apiKey: apiKey)
@@ -162,7 +162,7 @@ extension Caller {
 			}
 		}
 	}
-
+	
 	private func callData(_ urlRequest: URLRequest, completion: @escaping ((Data?, Error?) -> Void)) {
 		let requesting = requestCounter
 		requestCounter += 1
@@ -170,7 +170,7 @@ extension Caller {
 		LOG("URL: \(urlRequest.url?.absoluteString ?? "")")
 		printData(urlRequest.httpBody)
 		LOG("<-------- REQUESTING -------->")
-
+		
 		let task = Session.shared.session
 			.dataTask(with: urlRequest, completionHandler: { (data, _, error) in
 				DispatchQueue.main.async {
@@ -181,19 +181,19 @@ extension Caller {
 			})
 		task.resume()
 	}
-
+	
 	private func printRequest(_ url: String, counter: Int) {
 		LOG("<---- REQUESTED \(String(format: "%06d", counter)) --->")
 		LOG("Endpoint: \(url)")
 		LOG("<------- REQUESTED ------->")
 	}
-
+	
 	private func printResponse(_ data: Data?, counter: Int) {
 		LOG("<----- RESPONSE \(String(format: "%06d", counter)) ---->")
 		printData(data)
 		LOG("<-------- RESPONSE -------->")
 	}
-
+	
 	private func printData(_ data: Data?) {
 		if let data = data {
 			if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),

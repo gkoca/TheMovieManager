@@ -15,6 +15,7 @@ protocol LoginViaWebPresentationModelProtocol: BasePresentationModelProtocol {
 	var requestToken: String { get }
 	func navigate(_ route: LoginViaWebRoutes)
 	func createSession()
+	func viewDidDisappear()
 }
 
 enum LoginViaWebPresentationModelOutput {
@@ -37,5 +38,6 @@ enum LoginViaWebRoutes {
 }
 
 protocol LoginViaWebSceneDelegate: class {
-	func sessionCreated() 
+	func sessionCreated()
+	func sceneDidDisappear()
 }

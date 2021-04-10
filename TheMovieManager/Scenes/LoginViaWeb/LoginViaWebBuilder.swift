@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViaWebBuilder: BaseBuilder {
-
+	
 	static func build(requestToken: String, url: URL, delegate: LoginViaWebSceneDelegate? = nil,
 					  completion: @escaping ((LoginViaWebViewController) -> Void)) {
 		let presentationModel = LoginViaWebPresentationModel(requestToken: requestToken, url: url)

@@ -35,7 +35,7 @@ enum API: Caller {
 		case .createRequestToken:
 			return .get
 		case .createSession:
-//			return .post
+			//			return .post // api documentation says that this request should be `post` but apparently it is not
 			return .get
 		}
 	}
@@ -54,7 +54,7 @@ enum API: Caller {
 		case .createRequestToken:
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		case .createSession:
-//			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+			//			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		}
 	}
@@ -62,6 +62,4 @@ enum API: Caller {
 	var mock: Data? {
 		return nil
 	}
-	
-
 }
