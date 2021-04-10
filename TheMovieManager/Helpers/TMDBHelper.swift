@@ -12,7 +12,7 @@ class TMDBHelper {
 	static let shared = TMDBHelper()
 	
 	func getNewRequestToken(completion: @escaping (Bool, String?) -> Void) {
-		API.token.call { (response: TokenResponse?, error) in
+		API.newToken.call { (response: TokenResponse?, error) in
 			if let token = response?.token {
 				completion(true, token)
 			} else {

@@ -39,7 +39,7 @@ final class AuthenticationBusinessModel: BaseBusinessModel {
 // MARK: - AuthenticationBusinessModelProtocol methods
 extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 	func getNewToken() {
-		API.token.call { [weak self] (response: TokenResponse?, error) in
+		API.newToken.call { [weak self] (response: TokenResponse?, error) in
 			let formatter = DateFormatter()
 			formatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
 			if let token = response?.token,

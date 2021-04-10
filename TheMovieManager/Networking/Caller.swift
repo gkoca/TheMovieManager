@@ -52,24 +52,39 @@ struct URLParameterEncoder: ParameterEncoder {
 	}
 }
 
+struct JSONParameterEncoder: ParameterEncoder {
+	func encode(urlRequest: inout URLRequest, with parameters: [String : Any]) {
+		if let jsonAsData = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) {
+			urlRequest.httpBody = jsonAsData
+		}
+	}
+}
+
 public enum ParameterEncoding {
 
 	case urlEncoding
-
+	case jsonEncoding
+	
 	public func encode(urlRequest: inout URLRequest, parameters: [String: Any]?, apiKey: String?) {
+		if let apiKey = apiKey {
+			let apikeyParam = ["api_key": apiKey]
+			URLParameterEncoder().encode(urlRequest: &urlRequest, with: apikeyParam)
+		}
+		
 		switch self {
 		case .urlEncoding:
-			guard var urlParameters = parameters else { return }
-			if let apiKey = apiKey {
-				urlParameters["api_key"] = apiKey
-			}
+			guard let urlParameters = parameters else { return }
 			URLParameterEncoder().encode(urlRequest: &urlRequest, with: urlParameters)
+		case .jsonEncoding:
+			guard let bodyParameters = parameters else { return }
+			JSONParameterEncoder().encode(urlRequest: &urlRequest, with: bodyParameters)
 		}
 	}
 }
 
 enum HTTPMethod: String {
 	case get = "GET"
+	case post = "POST"
 }
 
 public enum HTTPTask {
