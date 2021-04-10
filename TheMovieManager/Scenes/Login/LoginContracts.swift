@@ -12,6 +12,7 @@ protocol LoginPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: LoginViewControllerProtocol? { get set }
 	var router: LoginRouterProtocol? { get set }
 	func navigate(_ route: LoginRoutes)
+	func viewDidLoad()
 }
 
 enum LoginPresentationModelOutput {

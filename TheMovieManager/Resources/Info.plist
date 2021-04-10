@@ -77,5 +77,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
+	<key>API_KEY</key>
+	<string>$(API_KEY)</string>
+	<key>LOG_LEVEL</key>
+	<string>$(LOG_LEVEL)</string>
 </dict>
 </plist>

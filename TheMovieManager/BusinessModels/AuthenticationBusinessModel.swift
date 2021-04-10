@@ -9,6 +9,7 @@ import Foundation
 
 protocol AuthenticationBusinessModelProtocol: BaseBusinessModelProtocol {
 	var delegate: AuthenticationBusinessModelDelegate? { get set }
+	func getNewToken()
 }
 
 protocol AuthenticationBusinessModelDelegate: BaseBusinessModelDelegate {
@@ -16,7 +17,7 @@ protocol AuthenticationBusinessModelDelegate: BaseBusinessModelDelegate {
 }
 
 enum AuthenticationBusinessModelOutput {
-	
+	case didGetToken(token: String, expiration: Date)
 }
 
 final class AuthenticationBusinessModel: BaseBusinessModel {
@@ -37,5 +38,15 @@ final class AuthenticationBusinessModel: BaseBusinessModel {
 
 // MARK: - AuthenticationBusinessModelProtocol methods
 extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
-	
+	func getNewToken() {
+		API.token.call { [weak self] (response: TokenResponse?, error) in
+			let formatter = DateFormatter()
+			formatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
+			if let token = response?.token,
+			   let expiration = response?.expiration,
+			   let expirationDate = formatter.date(from: expiration) {
+				self?.delegate?.handleOutput(.didGetToken(token: token, expiration: expirationDate))
+			}
+		}
+	}
 }

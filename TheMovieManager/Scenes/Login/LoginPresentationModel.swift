@@ -60,6 +60,10 @@ final class LoginPresentationModel: BasePresentationModel {
 
 // MARK: - LoginPresentationModelProtocol methods
 extension LoginPresentationModel: LoginPresentationModelProtocol {
+	func viewDidLoad() {
+		authentication.getNewToken()
+	}
+	
 	func navigate(_ route: LoginRoutes) {
 		router?.navigate(route)
 	}
@@ -70,6 +74,9 @@ extension LoginPresentationModel: LoginPresentationModelProtocol {
 extension LoginPresentationModel: AuthenticationBusinessModelDelegate {
 	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
 		switch output {
+		case .didGetToken(token: let token, expiration: let expiration):
+			LOG("token: \(token)")
+			LOG("expiration: \(expiration)")
 		}
 	}
 }

@@ -9,3 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 LOG_LEVEL = 1
+BASE_URL = https:\/\/api.themoviedb.org\/3
+API_KEY = c0079fc82ed899d28062da1919b804be

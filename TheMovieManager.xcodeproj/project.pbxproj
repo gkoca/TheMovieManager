@@ -37,6 +37,14 @@
 		E81EFCA72620E3CF008C2888 /* NetworkingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCA62620E3CF008C2888 /* NetworkingSpecs.swift */; };
 		E81EFCAC2620E5C8008C2888 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = E81EFCAB2620E5C8008C2888 /* Nimble */; };
 		E81EFCB32620E6E5008C2888 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = E81EFCB22620E6E5008C2888 /* Quick */; };
+		E81EFCB72621B163008C2888 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCB62621B163008C2888 /* API.swift */; };
+		E81EFCBB2621B29D008C2888 /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCBA2621B29D008C2888 /* ResponseModels.swift */; };
+		E81EFCC52621C190008C2888 /* LoginViaWeb.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFCBF2621C190008C2888 /* LoginViaWeb.storyboard */; };
+		E81EFCC62621C190008C2888 /* LoginViaWebPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC02621C190008C2888 /* LoginViaWebPresentationModel.swift */; };
+		E81EFCC72621C190008C2888 /* LoginViaWebRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC12621C190008C2888 /* LoginViaWebRouter.swift */; };
+		E81EFCC82621C190008C2888 /* LoginViaWebContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC22621C190008C2888 /* LoginViaWebContracts.swift */; };
+		E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC32621C190008C2888 /* LoginViaWebViewController.swift */; };
+		E81EFCCA2621C190008C2888 /* LoginViaWebBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC42621C190008C2888 /* LoginViaWebBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +92,14 @@
 		E81EFC9C2620DCEF008C2888 /* Caller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caller.swift; sourceTree = "<group>"; };
 		E81EFCA02620DDD6008C2888 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		E81EFCA62620E3CF008C2888 /* NetworkingSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingSpecs.swift; sourceTree = "<group>"; };
+		E81EFCB62621B163008C2888 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E81EFCBA2621B29D008C2888 /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
+		E81EFCBF2621C190008C2888 /* LoginViaWeb.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViaWeb.storyboard; sourceTree = "<group>"; };
+		E81EFCC02621C190008C2888 /* LoginViaWebPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebPresentationModel.swift; sourceTree = "<group>"; };
+		E81EFCC12621C190008C2888 /* LoginViaWebRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebRouter.swift; sourceTree = "<group>"; };
+		E81EFCC22621C190008C2888 /* LoginViaWebContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebContracts.swift; sourceTree = "<group>"; };
+		E81EFCC32621C190008C2888 /* LoginViaWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebViewController.swift; sourceTree = "<group>"; };
+		E81EFCC42621C190008C2888 /* LoginViaWebBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +222,7 @@
 		E81EFC622620CE18008C2888 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E81EFCBE2621C177008C2888 /* LoginViaWeb */,
 				E81EFC632620CE27008C2888 /* Login */,
 			);
 			path = Scenes;
@@ -254,8 +271,23 @@
 			children = (
 				E81EFC982620DCD6008C2888 /* Session.swift */,
 				E81EFC9C2620DCEF008C2888 /* Caller.swift */,
+				E81EFCB62621B163008C2888 /* API.swift */,
+				E81EFCBA2621B29D008C2888 /* ResponseModels.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		E81EFCBE2621C177008C2888 /* LoginViaWeb */ = {
+			isa = PBXGroup;
+			children = (
+				E81EFCBF2621C190008C2888 /* LoginViaWeb.storyboard */,
+				E81EFCC02621C190008C2888 /* LoginViaWebPresentationModel.swift */,
+				E81EFCC12621C190008C2888 /* LoginViaWebRouter.swift */,
+				E81EFCC22621C190008C2888 /* LoginViaWebContracts.swift */,
+				E81EFCC32621C190008C2888 /* LoginViaWebViewController.swift */,
+				E81EFCC42621C190008C2888 /* LoginViaWebBuilder.swift */,
+			);
+			path = LoginViaWeb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81EFCC52621C190008C2888 /* LoginViaWeb.storyboard in Resources */,
 				E81EFBF82620C7C4008C2888 /* LaunchScreen.storyboard in Resources */,
 				E81EFBF52620C7C4008C2888 /* Assets.xcassets in Resources */,
 				E81EFC882620D05C008C2888 /* Login.storyboard in Resources */,
@@ -366,7 +399,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81EFCBB2621B29D008C2888 /* ResponseModels.swift in Sources */,
 				E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */,
+				E81EFCC72621C190008C2888 /* LoginViaWebRouter.swift in Sources */,
+				E81EFCCA2621C190008C2888 /* LoginViaWebBuilder.swift in Sources */,
 				E81EFC892620D05C008C2888 /* LoginPresentationModel.swift in Sources */,
 				E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
@@ -376,14 +412,18 @@
 				E81EFC452620CAAA008C2888 /* BaseContracts.swift in Sources */,
 				E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */,
 				E81EFC992620DCD6008C2888 /* Session.swift in Sources */,
+				E81EFCC62621C190008C2888 /* LoginViaWebPresentationModel.swift in Sources */,
 				E81EFC922620D76D008C2888 /* Logger.swift in Sources */,
 				E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */,
 				E81EFC9D2620DCEF008C2888 /* Caller.swift in Sources */,
+				E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */,
+				E81EFCB72621B163008C2888 /* API.swift in Sources */,
 				E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */,
 				E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */,
 				E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */,
 				E81EFC8B2620D05C008C2888 /* LoginContracts.swift in Sources */,
 				E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */,
+				E81EFCC82621C190008C2888 /* LoginViaWebContracts.swift in Sources */,
 				E81EFC8A2620D05C008C2888 /* LoginRouter.swift in Sources */,
 				E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */,
 			);
