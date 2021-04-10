@@ -34,12 +34,22 @@ final class LoginViaWebViewController: BaseViewController {
 	}
 
 	// MARK: - custom methods
+	
+	func addDoneButton() {
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonAction))
+	}
+	
+	@objc func doneButtonAction() {
+		dismiss(animated: true)
+	}
 }
 
 // MARK:- LoginViaWebViewControllerProtocol methods
 extension LoginViaWebViewController: LoginViaWebViewControllerProtocol {
 	func handleOutput(_ output:  LoginViaWebPresentationModelOutput) {
 		switch output {
+		case .sessionCreated:
+			addDoneButton()
 		}
 	}
 }
@@ -54,6 +64,9 @@ extension LoginViaWebViewController: WKNavigationDelegate {
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		if let url = webView.url {
 			LOG("url \(url)")
+			if url.lastPathComponent == "allow" {
+				presentationModel?.createSession()
+			}
 		}
 	}
 }

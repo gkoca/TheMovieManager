@@ -26,11 +26,14 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 		}
 	}
 	
-	
+	var requestToken: String
 	var authenticationURL: URL
+	
+	weak var delegate: LoginViaWebSceneDelegate?
 
 	// MARK: - initialize with businessModel(s)
-	init(with url: URL) {
+	init(requestToken: String, url: URL) {
+		self.requestToken = requestToken
 		self.authenticationURL = url
 		super.init()
 	}
@@ -49,11 +52,16 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 
 // MARK: - LoginViaWebPresentationModelProtocol methods
 extension LoginViaWebPresentationModel: LoginViaWebPresentationModelProtocol {
+	func createSession() {
+		TMDBHelper.shared.createSession(with: requestToken) { [weak self] (isSuccess) in
+			if isSuccess {
+				self?.delegate?.sessionCreated()
+				self?.viewController?.handleOutput(.sessionCreated)
+			}
+		}
+	}
+	
 	func navigate(_ route: LoginViaWebRoutes) {
 		router?.navigate(route)
 	}
 }
-
-// Conform businessModelDelegates
-// MARK: - BusinessModelDelegate methods
-

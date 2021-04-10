@@ -42,7 +42,9 @@ struct URLParameterEncoder: ParameterEncoder {
 	func encode(urlRequest: inout URLRequest, with parameters: [String: Any]) {
 		guard let url = urlRequest.url else { fatalError("Missing URL") }
 		if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
-			urlComponents.queryItems = [URLQueryItem]()
+			if urlComponents.queryItems == nil {
+				urlComponents.queryItems = [URLQueryItem]()
+			}
 			parameters.forEach {
 				let queryItem = URLQueryItem(name: $0, value: "\($1)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
 				urlComponents.queryItems?.append(queryItem)
@@ -166,6 +168,7 @@ extension Caller {
 		requestCounter += 1
 		LOG("<----- REQUESTING \(String(format: "%06d", requesting))----->")
 		LOG("URL: \(urlRequest.url?.absoluteString ?? "")")
+		printData(urlRequest.httpBody)
 		LOG("<-------- REQUESTING -------->")
 
 		let task = Session.shared.session

@@ -9,8 +9,8 @@ import Foundation
 
 enum API: Caller {
 	
-	case newToken
-	case newSession(requestToken: String)
+	case createRequestToken
+	case createSession(requestToken: String)
 	
 	var apiKey: String? {
 		return Bundle.main.infoForKey("API_KEY")
@@ -23,25 +23,26 @@ enum API: Caller {
 	
 	var path: String {
 		switch self {
-		case .newToken:
+		case .createRequestToken:
 			return "/authentication/token/new"
-		case .newSession:
+		case .createSession:
 			return "/authentication/session/new"
 		}
 	}
 	
 	var method: HTTPMethod {
 		switch self {
-		case .newToken:
+		case .createRequestToken:
 			return .get
-		case .newSession:
-			return .post
+		case .createSession:
+//			return .post
+			return .get
 		}
 	}
 	
 	var parameters: [String : Any] {
 		switch self {
-		case .newSession(let token):
+		case .createSession(let token):
 			return ["request_token":token]
 		default:
 			return [:]
@@ -50,10 +51,11 @@ enum API: Caller {
 	
 	var task: HTTPTask {
 		switch self {
-		case .newToken:
+		case .createRequestToken:
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
-		case .newSession:
-			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+		case .createSession:
+//			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		}
 	}
 	

@@ -12,11 +12,13 @@ protocol LoginViaWebPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: LoginViaWebViewControllerProtocol? { get set }
 	var router: LoginViaWebRouterProtocol? { get set }
 	var authenticationURL: URL { get }
+	var requestToken: String { get }
 	func navigate(_ route: LoginViaWebRoutes)
+	func createSession()
 }
 
 enum LoginViaWebPresentationModelOutput {
-	
+	case sessionCreated
 }
 
 // MARK: View
@@ -32,4 +34,8 @@ protocol LoginViaWebRouterProtocol: BaseRouterProtocol {
 
 enum LoginViaWebRoutes {
 	
+}
+
+protocol LoginViaWebSceneDelegate: class {
+	func sessionCreated() 
 }

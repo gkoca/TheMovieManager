@@ -63,9 +63,9 @@ final class LoginPresentationModel: BasePresentationModel {
 // MARK: - LoginPresentationModelProtocol methods
 extension LoginPresentationModel: LoginPresentationModelProtocol {
 	func presentWebLogin() {
-		TMDBHelper.shared.getNewRequestToken { [weak self] (isSuccess, token) in
+		TMDBHelper.shared.createRequestToken { [weak self] (isSuccess, token) in
 			if isSuccess, let token = token {
-				self?.navigate(.webLogin(token: token))
+				self?.navigate(.webLogin(token: token, delegate: self))
 			}
 		}
 	}
@@ -88,5 +88,11 @@ extension LoginPresentationModel: AuthenticationBusinessModelDelegate {
 			LOG("token: \(token)")
 			LOG("expiration: \(expiration)")
 		}
+	}
+}
+
+extension LoginPresentationModel: LoginViaWebSceneDelegate {
+	func sessionCreated() {
+		LOG(#function)
 	}
 }
