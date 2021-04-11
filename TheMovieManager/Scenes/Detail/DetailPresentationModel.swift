@@ -26,19 +26,14 @@ final class DetailPresentationModel: BasePresentationModel {
 		}
 	}
 	
-	
-	var watchlistBusinessModel: WatchlistBusinessModelProtocol
 	var sceneLoadingHandler: (() -> Void)?
 	var item: MovieItem
 
 	// MARK: - initialize with businessModel(s)
-	init(item: MovieItem,
-		 watchlistBusinessModel: WatchlistBusinessModelProtocol) {
+	init(item: MovieItem) {
 		self.item = item
-		self.watchlistBusinessModel = watchlistBusinessModel
 		super.init()
 		FavoritesAndWatchlistManager.shared.addDelegate(self)
-		self.watchlistBusinessModel.delegate = self
 	}
 
 	func loadScene(completion: @escaping ((DetailViewController) -> Void)) {
@@ -68,7 +63,7 @@ extension DetailPresentationModel: DetailPresentationModelProtocol {
 	
 	func isItemInWatchlist() -> Bool {
 		guard let id = item.id else { return false}
-		return watchlistBusinessModel.isItemInWatchlist(id: id)
+		return FavoritesAndWatchlistManager.shared.isItemInWatchlist(id: id)
 	}
 	
 	func changeFavoriteStatus() {
@@ -96,16 +91,6 @@ extension DetailPresentationModel: FavoritesAndWatchlistManagerDelegate {
 	func didChangeWatchlistStatus(item: MovieItem, isInWatchlist: Bool) {
 		if item.id == self.item.id {
 			viewController?.handleOutput(.didChangeWatchlistStatus(isInWatchlist: isInWatchlist))
-		}
-	}
-}
-
-extension DetailPresentationModel:WatchlistBusinessModelDelegate {
-	func handleOutput(_ output: WatchlistBusinessModelOutput) {
-		switch output {
-		
-		case .didGetWatchlist(items: let items):
-			break
 		}
 	}
 }

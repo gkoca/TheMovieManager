@@ -54,18 +54,12 @@
 		E81EFCE426220599008C2888 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCDE26220599008C2888 /* MainViewController.swift */; };
 		E81EFCE526220599008C2888 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCDF26220599008C2888 /* MainBuilder.swift */; };
 		E81EFCEB26222544008C2888 /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCEA26222544008C2888 /* BaseTabbarController.swift */; };
-		E81EFCF726222691008C2888 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFCF126222691008C2888 /* Favorites.storyboard */; };
-		E81EFCF826222691008C2888 /* FavoritesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF226222691008C2888 /* FavoritesPresentationModel.swift */; };
-		E81EFCF926222691008C2888 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF326222691008C2888 /* FavoritesRouter.swift */; };
-		E81EFCFA26222691008C2888 /* FavoritesContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF426222691008C2888 /* FavoritesContracts.swift */; };
-		E81EFCFB26222691008C2888 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF526222691008C2888 /* FavoritesViewController.swift */; };
-		E81EFCFC26222691008C2888 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF626222691008C2888 /* FavoritesBuilder.swift */; };
-		E81EFD07262226A7008C2888 /* Watchlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFD01262226A7008C2888 /* Watchlist.storyboard */; };
-		E81EFD08262226A7008C2888 /* WatchlistPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD02262226A7008C2888 /* WatchlistPresentationModel.swift */; };
-		E81EFD09262226A7008C2888 /* WatchlistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD03262226A7008C2888 /* WatchlistRouter.swift */; };
-		E81EFD0A262226A7008C2888 /* WatchlistContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD04262226A7008C2888 /* WatchlistContracts.swift */; };
-		E81EFD0B262226A7008C2888 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD05262226A7008C2888 /* WatchlistViewController.swift */; };
-		E81EFD0C262226A7008C2888 /* WatchlistBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD06262226A7008C2888 /* WatchlistBuilder.swift */; };
+		E81EFCF726222691008C2888 /* FavoritesAndWatchlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFCF126222691008C2888 /* FavoritesAndWatchlist.storyboard */; };
+		E81EFCF826222691008C2888 /* FavoritesAndWatchlistPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF226222691008C2888 /* FavoritesAndWatchlistPresentationModel.swift */; };
+		E81EFCF926222691008C2888 /* FavoritesAndWatchlistRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF326222691008C2888 /* FavoritesAndWatchlistRouter.swift */; };
+		E81EFCFA26222691008C2888 /* FavoritesAndWatchlistContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF426222691008C2888 /* FavoritesAndWatchlistContracts.swift */; };
+		E81EFCFB26222691008C2888 /* FavoritesAndWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF526222691008C2888 /* FavoritesAndWatchlistViewController.swift */; };
+		E81EFCFC26222691008C2888 /* FavoritesAndWatchlistBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCF626222691008C2888 /* FavoritesAndWatchlistBuilder.swift */; };
 		E81EFD15262226BD008C2888 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFD0F262226BD008C2888 /* Search.storyboard */; };
 		E81EFD16262226BD008C2888 /* SearchPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD10262226BD008C2888 /* SearchPresentationModel.swift */; };
 		E81EFD17262226BD008C2888 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD11262226BD008C2888 /* SearchRouter.swift */; };
@@ -81,7 +75,6 @@
 		E81EFD3026233BBE008C2888 /* SearchMovieBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */; };
 		E81EFD342623525D008C2888 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD332623525D008C2888 /* ImageRepository.swift */; };
 		E81EFD3B26235F9B008C2888 /* FavoritesAndWatchlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */; };
-		E81EFD3F26235FAA008C2888 /* WatchlistBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */; };
 		E81EFD4526237906008C2888 /* Multicastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD4426237906008C2888 /* Multicastable.swift */; };
 /* End PBXBuildFile section */
 
@@ -147,18 +140,12 @@
 		E81EFCDE26220599008C2888 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E81EFCDF26220599008C2888 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		E81EFCEA26222544008C2888 /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
-		E81EFCF126222691008C2888 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
-		E81EFCF226222691008C2888 /* FavoritesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresentationModel.swift; sourceTree = "<group>"; };
-		E81EFCF326222691008C2888 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
-		E81EFCF426222691008C2888 /* FavoritesContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesContracts.swift; sourceTree = "<group>"; };
-		E81EFCF526222691008C2888 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		E81EFCF626222691008C2888 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
-		E81EFD01262226A7008C2888 /* Watchlist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Watchlist.storyboard; sourceTree = "<group>"; };
-		E81EFD02262226A7008C2888 /* WatchlistPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistPresentationModel.swift; sourceTree = "<group>"; };
-		E81EFD03262226A7008C2888 /* WatchlistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistRouter.swift; sourceTree = "<group>"; };
-		E81EFD04262226A7008C2888 /* WatchlistContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistContracts.swift; sourceTree = "<group>"; };
-		E81EFD05262226A7008C2888 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
-		E81EFD06262226A7008C2888 /* WatchlistBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistBuilder.swift; sourceTree = "<group>"; };
+		E81EFCF126222691008C2888 /* FavoritesAndWatchlist.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesAndWatchlist.storyboard; sourceTree = "<group>"; };
+		E81EFCF226222691008C2888 /* FavoritesAndWatchlistPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistPresentationModel.swift; sourceTree = "<group>"; };
+		E81EFCF326222691008C2888 /* FavoritesAndWatchlistRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistRouter.swift; sourceTree = "<group>"; };
+		E81EFCF426222691008C2888 /* FavoritesAndWatchlistContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistContracts.swift; sourceTree = "<group>"; };
+		E81EFCF526222691008C2888 /* FavoritesAndWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistViewController.swift; sourceTree = "<group>"; };
+		E81EFCF626222691008C2888 /* FavoritesAndWatchlistBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistBuilder.swift; sourceTree = "<group>"; };
 		E81EFD0F262226BD008C2888 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E81EFD10262226BD008C2888 /* SearchPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresentationModel.swift; sourceTree = "<group>"; };
 		E81EFD11262226BD008C2888 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -174,7 +161,6 @@
 		E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieBusinessModel.swift; sourceTree = "<group>"; };
 		E81EFD332623525D008C2888 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistManager.swift; sourceTree = "<group>"; };
-		E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistBusinessModel.swift; sourceTree = "<group>"; };
 		E81EFD4426237906008C2888 /* Multicastable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multicastable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,7 +288,6 @@
 			children = (
 				E81EFD1D262226C6008C2888 /* Detail */,
 				E81EFCF02622267F008C2888 /* Favorites */,
-				E81EFCEF26222673008C2888 /* Watchlist */,
 				E81EFCEE2622266B008C2888 /* Search */,
 				E81EFCD926220582008C2888 /* Main */,
 				E81EFCBE2621C177008C2888 /* LoginViaWeb */,
@@ -329,7 +314,6 @@
 			children = (
 				E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */,
 				E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */,
-				E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */,
 				E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */,
 			);
 			path = BusinessModels;
@@ -405,28 +389,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		E81EFCEF26222673008C2888 /* Watchlist */ = {
-			isa = PBXGroup;
-			children = (
-				E81EFD01262226A7008C2888 /* Watchlist.storyboard */,
-				E81EFD02262226A7008C2888 /* WatchlistPresentationModel.swift */,
-				E81EFD03262226A7008C2888 /* WatchlistRouter.swift */,
-				E81EFD04262226A7008C2888 /* WatchlistContracts.swift */,
-				E81EFD05262226A7008C2888 /* WatchlistViewController.swift */,
-				E81EFD06262226A7008C2888 /* WatchlistBuilder.swift */,
-			);
-			path = Watchlist;
-			sourceTree = "<group>";
-		};
 		E81EFCF02622267F008C2888 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				E81EFCF126222691008C2888 /* Favorites.storyboard */,
-				E81EFCF226222691008C2888 /* FavoritesPresentationModel.swift */,
-				E81EFCF326222691008C2888 /* FavoritesRouter.swift */,
-				E81EFCF426222691008C2888 /* FavoritesContracts.swift */,
-				E81EFCF526222691008C2888 /* FavoritesViewController.swift */,
-				E81EFCF626222691008C2888 /* FavoritesBuilder.swift */,
+				E81EFCF126222691008C2888 /* FavoritesAndWatchlist.storyboard */,
+				E81EFCF226222691008C2888 /* FavoritesAndWatchlistPresentationModel.swift */,
+				E81EFCF326222691008C2888 /* FavoritesAndWatchlistRouter.swift */,
+				E81EFCF426222691008C2888 /* FavoritesAndWatchlistContracts.swift */,
+				E81EFCF526222691008C2888 /* FavoritesAndWatchlistViewController.swift */,
+				E81EFCF626222691008C2888 /* FavoritesAndWatchlistBuilder.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -533,10 +504,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E81EFCC52621C190008C2888 /* LoginViaWeb.storyboard in Resources */,
-				E81EFD07262226A7008C2888 /* Watchlist.storyboard in Resources */,
 				E81EFD24262226D6008C2888 /* Detail.storyboard in Resources */,
 				E81EFCE026220599008C2888 /* Main.storyboard in Resources */,
-				E81EFCF726222691008C2888 /* Favorites.storyboard in Resources */,
+				E81EFCF726222691008C2888 /* FavoritesAndWatchlist.storyboard in Resources */,
 				E81EFBF82620C7C4008C2888 /* LaunchScreen.storyboard in Resources */,
 				E81EFBF52620C7C4008C2888 /* Assets.xcassets in Resources */,
 				E81EFD15262226BD008C2888 /* Search.storyboard in Resources */,
@@ -562,17 +532,15 @@
 				E81EFD17262226BD008C2888 /* SearchRouter.swift in Sources */,
 				E81EFC572620CB1A008C2888 /* BaseBuilder.swift in Sources */,
 				E81EFD1A262226BD008C2888 /* SearchBuilder.swift in Sources */,
-				E81EFCF926222691008C2888 /* FavoritesRouter.swift in Sources */,
-				E81EFCFC26222691008C2888 /* FavoritesBuilder.swift in Sources */,
+				E81EFCF926222691008C2888 /* FavoritesAndWatchlistRouter.swift in Sources */,
+				E81EFCFC26222691008C2888 /* FavoritesAndWatchlistBuilder.swift in Sources */,
 				E81EFCEB26222544008C2888 /* BaseTabbarController.swift in Sources */,
 				E81EFCE126220599008C2888 /* MainPresentationModel.swift in Sources */,
 				E81EFD18262226BD008C2888 /* SearchContracts.swift in Sources */,
 				E81EFD28262226D6008C2888 /* DetailViewController.swift in Sources */,
 				E81EFD25262226D6008C2888 /* DetailPresentationModel.swift in Sources */,
 				E81EFD29262226D6008C2888 /* DetailBuilder.swift in Sources */,
-				E81EFD0B262226A7008C2888 /* WatchlistViewController.swift in Sources */,
 				E81EFCC72621C190008C2888 /* LoginViaWebRouter.swift in Sources */,
-				E81EFD0C262226A7008C2888 /* WatchlistBuilder.swift in Sources */,
 				E81EFD16262226BD008C2888 /* SearchPresentationModel.swift in Sources */,
 				E81EFD27262226D6008C2888 /* DetailContracts.swift in Sources */,
 				E81EFCE326220599008C2888 /* MainContracts.swift in Sources */,
@@ -581,11 +549,9 @@
 				E81EFD4526237906008C2888 /* Multicastable.swift in Sources */,
 				E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
-				E81EFD0A262226A7008C2888 /* WatchlistContracts.swift in Sources */,
-				E81EFD09262226A7008C2888 /* WatchlistRouter.swift in Sources */,
 				E81EFCD42621CDAA008C2888 /* TMDBHelper.swift in Sources */,
 				E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */,
-				E81EFCFB26222691008C2888 /* FavoritesViewController.swift in Sources */,
+				E81EFCFB26222691008C2888 /* FavoritesAndWatchlistViewController.swift in Sources */,
 				E81EFC5F2620CBB7008C2888 /* main.swift in Sources */,
 				E81EFCE426220599008C2888 /* MainViewController.swift in Sources */,
 				E81EFC532620CB0B008C2888 /* BaseRouter.swift in Sources */,
@@ -593,7 +559,6 @@
 				E81EFCE226220599008C2888 /* MainRouter.swift in Sources */,
 				E81EFD26262226D6008C2888 /* DetailRouter.swift in Sources */,
 				E81EFC4F2620CB02008C2888 /* BasePresentationModel.swift in Sources */,
-				E81EFD08262226A7008C2888 /* WatchlistPresentationModel.swift in Sources */,
 				E81EFC992620DCD6008C2888 /* Session.swift in Sources */,
 				E81EFCC62621C190008C2888 /* LoginViaWebPresentationModel.swift in Sources */,
 				E81EFC922620D76D008C2888 /* Logger.swift in Sources */,
@@ -603,7 +568,7 @@
 				E81EFD3B26235F9B008C2888 /* FavoritesAndWatchlistManager.swift in Sources */,
 				E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */,
 				E81EFCB72621B163008C2888 /* API.swift in Sources */,
-				E81EFCF826222691008C2888 /* FavoritesPresentationModel.swift in Sources */,
+				E81EFCF826222691008C2888 /* FavoritesAndWatchlistPresentationModel.swift in Sources */,
 				E81EFD3026233BBE008C2888 /* SearchMovieBusinessModel.swift in Sources */,
 				E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */,
 				E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */,
@@ -612,12 +577,11 @@
 				E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */,
 				E81EFD19262226BD008C2888 /* SearchViewController.swift in Sources */,
 				E81EFCE526220599008C2888 /* MainBuilder.swift in Sources */,
-				E81EFD3F26235FAA008C2888 /* WatchlistBusinessModel.swift in Sources */,
 				E81EFCC82621C190008C2888 /* LoginViaWebContracts.swift in Sources */,
 				E81EFC8A2620D05C008C2888 /* LoginRouter.swift in Sources */,
 				E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */,
 				E81EFD342623525D008C2888 /* ImageRepository.swift in Sources */,
-				E81EFCFA26222691008C2888 /* FavoritesContracts.swift in Sources */,
+				E81EFCFA26222691008C2888 /* FavoritesAndWatchlistContracts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

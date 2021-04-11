@@ -59,23 +59,26 @@ final class MainPresentationModel: BasePresentationModel {
 	
 	func createTabScenes() {
 		var search: UINavigationController?
-		var watchlist: WatchlistViewController?
-		var favorites: FavoritesViewController?
+		var watchlist: FavoritesAndWatchlistViewController?
+		var favorites: FavoritesAndWatchlistViewController?
 		
 		let group = DispatchGroup()
+		
 		group.enter()
 		SearchBuilder.build { (searchViewController) in
 			let navController = UINavigationController(rootViewController: searchViewController)
 			search = navController
 			group.leave()
 		}
+		
 		group.enter()
-		WatchlistBuilder.build { (watchlistViewController) in
+		FavoritesAndWatchlistBuilder.build(mode: .watchlist) { (watchlistViewController) in
 			watchlist = watchlistViewController
 			group.leave()
 		}
+		
 		group.enter()
-		FavoritesBuilder.build { (favoritesViewController) in
+		FavoritesAndWatchlistBuilder.build(mode: .favorites) { (favoritesViewController) in
 			favorites = favoritesViewController
 			group.leave()
 		}

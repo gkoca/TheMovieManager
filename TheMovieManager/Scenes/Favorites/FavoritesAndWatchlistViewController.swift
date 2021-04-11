@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class FavoritesViewController: BaseViewController {
-	var presentationModel: FavoritesPresentationModelProtocol? {
+final class FavoritesAndWatchlistViewController: BaseViewController {
+	var presentationModel: FavoritesAndWatchlistPresentationModelProtocol? {
 		get {
-			return self.basePresentationModel as? FavoritesPresentationModelProtocol
+			return self.basePresentationModel as? FavoritesAndWatchlistPresentationModelProtocol
 		}
 		set {
 			self.basePresentationModel = newValue
@@ -20,29 +20,36 @@ final class FavoritesViewController: BaseViewController {
 	// MARK: - ui controls
 	@IBOutlet weak var tableView: UITableView!
 	
-	// MARK: - members
-
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		title = "Favorites"
 		let lightConfiguration = UIImage.SymbolConfiguration(weight: .light)
-		tabBarItem.image = UIImage(systemName: "star", withConfiguration: lightConfiguration)
-		tabBarItem.selectedImage = UIImage(systemName: "star.fill", withConfiguration: lightConfiguration)
+		switch presentationModel?.mode {
+		case .favorites:
+			title = "Favorites"
+			tabBarItem.image = UIImage(systemName: "star", withConfiguration: lightConfiguration)
+			tabBarItem.selectedImage = UIImage(systemName: "star.fill", withConfiguration: lightConfiguration)
+		case .watchlist:
+			title = "Watchlist"
+			tabBarItem.image = UIImage(systemName: "list.bullet", withConfiguration: lightConfiguration)
+		default:
+			break
+		}
 	}
 
-	// MARK: - custom methods
 }
 
-// MARK:- FavoritesViewControllerProtocol methods
-extension FavoritesViewController: FavoritesViewControllerProtocol {
-	func handleOutput(_ output:  FavoritesPresentationModelOutput) {
+// MARK:- FavoritesAndWatchlistViewControllerProtocol methods
+extension FavoritesAndWatchlistViewController: FavoritesAndWatchlistViewControllerProtocol {
+	func handleOutput(_ output:  FavoritesAndWatchlistPresentationModelOutput) {
 		switch output {
+		case .shouldReload:
+			tableView.reloadData()
 		}
 	}
 }
 
-extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavoritesAndWatchlistViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return presentationModel?.items.count ?? 0
 	}

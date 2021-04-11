@@ -1,5 +1,5 @@
 //
-//  FavoritesRouter.swift
+//  FavoritesAndWatchlistRouter.swift
 //  TheMovieManager
 //
 //  Created by Gökhan KOCA on 10.04.2021.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class FavoritesRouter: FavoritesRouterProtocol {
+class FavoritesAndWatchlistRouter: FavoritesAndWatchlistRouterProtocol {
 	unowned var viewController: UIViewController
 
 	init(viewController: UIViewController) {
 		self.viewController = viewController
 	}
 
-	func navigate(_ route: FavoritesRoutes) {
+	func navigate(_ route: FavoritesAndWatchlistRoutes) {
 		switch route {
 		case .detail(let item):
 			DetailBuilder.build(item: item) { (detail) in
