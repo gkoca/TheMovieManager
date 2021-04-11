@@ -24,6 +24,9 @@ final class SearchViewController: BaseViewController {
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Search"
+		let lightConfiguration = UIImage.SymbolConfiguration(weight: .light)
+		tabBarItem.image = UIImage(systemName: "magnifyingglass", withConfiguration: lightConfiguration)
 	}
 
 	// MARK: - custom methods

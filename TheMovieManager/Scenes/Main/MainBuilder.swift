@@ -8,12 +8,10 @@
 import UIKit
 
 class MainBuilder: BaseBuilder {
-
-	static var presentationModel: MainPresentationModel?
-
 	static func build(completion: @escaping ((MainViewController) -> Void)) {
-		presentationModel = MainPresentationModel() // init with businessModel(s)
-		presentationModel?.loadScene { viewController in
+		let authentication = AuthenticationBusinessModel()
+		let presentationModel = MainPresentationModel(with: authentication)
+		presentationModel.loadScene { viewController in
 			completion(viewController)
 		}
 	}

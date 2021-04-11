@@ -16,6 +16,8 @@ class MainRouter: MainRouterProtocol {
 
 	func navigate(_ route: MainRoutes) {
 		switch route {
+		case .logout:
+			(viewController.view.window?.windowScene?.delegate as? SceneDelegate)?.presentLogin()
 		}
 	}
 }

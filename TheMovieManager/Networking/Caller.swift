@@ -87,6 +87,7 @@ public enum ParameterEncoding {
 enum HTTPMethod: String {
 	case get = "GET"
 	case post = "POST"
+	case delete = "DELETE"
 }
 
 public enum HTTPTask {
@@ -113,7 +114,8 @@ extension Caller {
 		var request = URLRequest(url: baseURL.appendingPathComponent(path))
 		request.httpMethod = method.rawValue
 		request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-		
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		request.addValue("application/json", forHTTPHeaderField: "Accept")
 		switch task {
 		case .requestParameters(let parameters, let encoding):
 			encoding.encode(urlRequest: &request, parameters: parameters, apiKey: apiKey)

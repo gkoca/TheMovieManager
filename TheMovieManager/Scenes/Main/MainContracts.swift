@@ -12,10 +12,13 @@ protocol MainPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: MainViewControllerProtocol? { get set }
 	var router: MainRouterProtocol? { get set }
 	func navigate(_ route: MainRoutes)
+	func logout()
 }
 
 enum MainPresentationModelOutput {
-	
+	case didLoadScenes(search: SearchViewController,
+					   watchlist: WatchlistViewController,
+					   favorites: FavoritesViewController)
 }
 
 // MARK: View
@@ -30,5 +33,5 @@ protocol MainRouterProtocol: BaseRouterProtocol {
 }
 
 enum MainRoutes {
-	
+	case logout
 }

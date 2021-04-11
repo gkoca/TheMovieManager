@@ -9,11 +9,9 @@ import UIKit
 
 class WatchlistBuilder: BaseBuilder {
 
-	static var presentationModel: WatchlistPresentationModel?
-
 	static func build(completion: @escaping ((WatchlistViewController) -> Void)) {
-		presentationModel = WatchlistPresentationModel() // init with businessModel(s)
-		presentationModel?.loadScene { viewController in
+		let presentationModel = WatchlistPresentationModel() // init with businessModel(s)
+		presentationModel.loadScene { viewController in
 			completion(viewController)
 		}
 	}

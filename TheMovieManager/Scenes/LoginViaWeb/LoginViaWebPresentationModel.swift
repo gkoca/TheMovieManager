@@ -25,15 +25,16 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
-	
+	var authentication: AuthenticationBusinessModelProtocol
 	var requestToken: String
 	var authenticationURL: URL
 	
 	weak var delegate: LoginViaWebSceneDelegate?
 
-	init(requestToken: String, url: URL) {
+	init(requestToken: String, url: URL, businessModel: AuthenticationBusinessModelProtocol) {
 		self.requestToken = requestToken
 		self.authenticationURL = url
+		self.authentication = businessModel
 		super.init()
 	}
 
@@ -56,7 +57,7 @@ extension LoginViaWebPresentationModel: LoginViaWebPresentationModelProtocol {
 	}
 	
 	func createSession() {
-		TMDBHelper.shared.createSession(with: requestToken) { [weak self] (isSuccess, responseMessage) in
+		authentication.createSession(with: requestToken) { [weak self] (isSuccess, responseMessage) in
 			if isSuccess {
 				self?.delegate?.sessionCreated()
 				self?.viewController?.handleOutput(.sessionCreated)

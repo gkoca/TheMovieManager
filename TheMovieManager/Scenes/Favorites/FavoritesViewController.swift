@@ -24,6 +24,10 @@ final class FavoritesViewController: BaseViewController {
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Favorites"
+		let lightConfiguration = UIImage.SymbolConfiguration(weight: .light)
+		tabBarItem.image = UIImage(systemName: "star", withConfiguration: lightConfiguration)
+		tabBarItem.selectedImage = UIImage(systemName: "star.fill", withConfiguration: lightConfiguration)
 	}
 
 	// MARK: - custom methods

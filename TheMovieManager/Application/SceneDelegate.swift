@@ -14,14 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene,
 			   willConnectTo session: UISceneSession,
 			   options connectionOptions: UIScene.ConnectionOptions) {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-			LoginBuilder.build { viewController in
-				guard let windowScene = (scene as? UIWindowScene) else { return }
-				let window = UIWindow(windowScene: windowScene)
-				window.rootViewController = viewController
-				self.window = window
-				self.window?.makeKeyAndVisible()
-			}
+		LoginBuilder.build { viewController in
+			guard let windowScene = (scene as? UIWindowScene) else { return }
+			let window = UIWindow(windowScene: windowScene)
+			window.rootViewController = viewController
+			self.window = window
+			self.window?.makeKeyAndVisible()
 		}
 	}
 	
@@ -37,7 +35,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 							  animations: nil,
 							  completion: nil)
 		}
-		
+	}
+	
+	func presentLogin() {
+		guard let window = window else { return }
+		LoginBuilder.build { viewController in
+			window.rootViewController = viewController
+			window.makeKeyAndVisible()
+			UIView.transition(with: window,
+							  duration: 0.24,
+							  options: .transitionFlipFromRight,
+							  animations: nil,
+							  completion: nil)
+		}
 	}
 }
 

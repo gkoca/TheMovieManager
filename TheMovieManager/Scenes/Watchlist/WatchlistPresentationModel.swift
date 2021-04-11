@@ -32,6 +32,10 @@ final class WatchlistPresentationModel: BasePresentationModel {
 		super.init()
 	}
 
+	deinit {
+		LOG("\(String(describing: type(of: self))) \(#function)")
+	}
+	
 	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((WatchlistViewController) -> Void)) {
@@ -42,9 +46,9 @@ final class WatchlistPresentationModel: BasePresentationModel {
 		self.router = router
 		viewController.presentationModel = self
 		viewController.loadViewIfNeeded()
-		sceneLoadingHandler = {
+//		sceneLoadingHandler = {
 			completion(viewController)
-		}
+//		}
 		// start loading process here
 	} 
 }

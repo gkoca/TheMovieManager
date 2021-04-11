@@ -10,6 +10,5 @@ import Foundation
 class AppContext {
 	static let main = AppContext()
 	
-	var requestToken: String?
-	var requestTokenExpiration: Date?
+	var sessionId: String?
 }

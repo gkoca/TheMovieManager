@@ -53,7 +53,7 @@ final class LoginPresentationModel: BasePresentationModel {
 // MARK: - LoginPresentationModelProtocol methods
 extension LoginPresentationModel: LoginPresentationModelProtocol {
 	func presentWebLogin() {
-		TMDBHelper.shared.createRequestToken { [weak self] (isSuccess, responseMessage) in
+		authentication.createRequestToken { [weak self] (isSuccess, responseMessage) in
 			if isSuccess {
 				self?.navigate(.webLogin(token: responseMessage, delegate: self))
 			} else {
@@ -79,6 +79,8 @@ extension LoginPresentationModel: AuthenticationBusinessModelDelegate {
 			viewController?.didFailure(errorText: message)
 		case .loginSuccess:
 			navigate(.main)
+		default:
+			break
 		}
 	}
 }

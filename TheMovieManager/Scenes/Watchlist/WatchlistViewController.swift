@@ -24,6 +24,9 @@ final class WatchlistViewController: BaseViewController {
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Watchlist"
+		let lightConfiguration = UIImage.SymbolConfiguration(weight: .light)
+		tabBarItem.image = UIImage(systemName: "list.bullet", withConfiguration: lightConfiguration)
 	}
 
 	// MARK: - custom methods

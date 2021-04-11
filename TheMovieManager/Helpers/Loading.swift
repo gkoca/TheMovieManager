@@ -18,7 +18,7 @@ class Loading {
 		let backgroundView = UIView()
 		backgroundView.tag = 987
 		backgroundView.frame = UIScreen.main.bounds
-		backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+		backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 		let activityIndicator = UIActivityIndicatorView(style: .large)
 		backgroundView.addSubview(activityIndicator)
 		activityIndicator.center = backgroundView.center

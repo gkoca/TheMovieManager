@@ -29,17 +29,18 @@
                                     <constraint firstAttribute="height" constant="80" id="tFs-vc-7ho"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SF_play_rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="PFd-2Z-qtB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.tv" translatesAutoresizingMaskIntoConstraints="NO" id="PFd-2Z-qtB">
                                 <rect key="frame" x="0.0" y="60" width="414" height="129"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="129" id="xcH-Rj-h0m"/>
                                 </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="light"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7cW-d1-67Y">
                                 <rect key="frame" x="16" y="270" width="382" height="202"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB5-n0-Mum">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dB5-n0-Mum">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -128,8 +129,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SF_play_rectangle" width="256" height="256"/>
         <image name="amaris_logo" width="750" height="338"/>
+        <image name="play.tv" width="16" height="13"/>
         <namedColor name="AccentColor">
             <color red="0.15299999713897705" green="0.14900000393390656" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

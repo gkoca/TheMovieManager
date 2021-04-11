@@ -9,11 +9,9 @@ import UIKit
 
 class FavoritesBuilder: BaseBuilder {
 
-	static var presentationModel: FavoritesPresentationModel?
-
 	static func build(completion: @escaping ((FavoritesViewController) -> Void)) {
-		presentationModel = FavoritesPresentationModel() // init with businessModel(s)
-		presentationModel?.loadScene { viewController in
+		let presentationModel = FavoritesPresentationModel() // init with businessModel(s)
+		presentationModel.loadScene { viewController in
 			completion(viewController)
 		}
 	}

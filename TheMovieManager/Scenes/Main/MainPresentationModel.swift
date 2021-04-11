@@ -25,15 +25,22 @@ final class MainPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
+	
+	var authentication: AuthenticationBusinessModelProtocol
+	
 	var sceneLoadingHandler: (() -> Void)?
-
+	
 	// MARK: - initialize with businessModel(s)
-	override init() {
+	init(with businessModel: AuthenticationBusinessModelProtocol) {
+		authentication = businessModel
 		super.init()
+		authentication.delegate = self
 	}
-
-	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
-	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
+	
+	deinit {
+		LOG("\(String(describing: type(of: self))) \(#function)")
+	}
+	
 	func loadScene(completion: @escaping ((MainViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 		let viewController: MainViewController = storyBoard.instantiateViewController()
@@ -45,17 +52,45 @@ final class MainPresentationModel: BasePresentationModel {
 		sceneLoadingHandler = {
 			completion(viewController)
 		}
-		
-		// start loading process here
+		createTabScenes()
 	}
 	
 	func createTabScenes() {
+		var search: SearchViewController?
+		var watchlist: WatchlistViewController?
+		var favorites: FavoritesViewController?
 		
+		let group = DispatchGroup()
+		group.enter()
+		SearchBuilder.build { (searchViewController) in
+			search = searchViewController
+			group.leave()
+		}
+		group.enter()
+		WatchlistBuilder.build { (watchlistViewController) in
+			watchlist = watchlistViewController
+			group.leave()
+		}
+		group.enter()
+		FavoritesBuilder.build { (favoritesViewController) in
+			favorites = favoritesViewController
+			group.leave()
+		}
+		
+		group.notify(queue: .main) { [weak self] in
+			guard let search = search, let watchlist = watchlist, let favorites = favorites else { return }
+			self?.viewController?.handleOutput(.didLoadScenes(search: search, watchlist: watchlist, favorites: favorites))
+			self?.sceneLoadingHandler?()
+		}
 	}
 }
 
 // MARK: - MainPresentationModelProtocol methods
 extension MainPresentationModel: MainPresentationModelProtocol {
+	func logout() {
+		authentication.logout()
+	}
+	
 	func navigate(_ route: MainRoutes) {
 		router?.navigate(route)
 	}
@@ -64,3 +99,15 @@ extension MainPresentationModel: MainPresentationModelProtocol {
 // Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
 
+extension MainPresentationModel:AuthenticationBusinessModelDelegate {
+	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
+		switch output {
+		case .logoutFailed(let message):
+			viewController?.didFailure(errorText: message)
+		case .logoutSuccess:
+			navigate(.logout)
+		default:
+			break
+		}
+	}
+}
