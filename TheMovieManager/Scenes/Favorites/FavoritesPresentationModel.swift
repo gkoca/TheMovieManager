@@ -25,19 +25,23 @@ final class FavoritesPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
+	
+	var items: [MovieItem] {
+		return FavoritesAndWatchlistManager.shared.favorites
+	}
+	
 	var sceneLoadingHandler: (() -> Void)?
-
+	
 	// MARK: - initialize with businessModel(s)
 	override init() {
 		super.init()
+		FavoritesAndWatchlistManager.shared.addDelegate(self)
 	}
 	
 	deinit {
 		LOG("\(String(describing: type(of: self))) \(#function)")
 	}
-
-	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
-	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
+	
 	func loadScene(completion: @escaping ((FavoritesViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Favorites", bundle: nil)
 		var viewController: FavoritesViewController? = storyBoard.instantiateViewController()
@@ -46,23 +50,27 @@ final class FavoritesPresentationModel: BasePresentationModel {
 		self.router = router
 		viewController?.presentationModel = self
 		viewController?.loadViewIfNeeded()
-//		sceneLoadingHandler = {
 		if let viewController = viewController {
 			completion(viewController)
 		}
 		viewController = nil
-//		}
-		// start loading process here
 	} 
 }
 
 // MARK: - FavoritesPresentationModelProtocol methods
 extension FavoritesPresentationModel: FavoritesPresentationModelProtocol {
+	func didSelectItem(at index: Int) {
+		navigate(.detail(item: items[index]))
+	}
+	
 	func navigate(_ route: FavoritesRoutes) {
 		router?.navigate(route)
 	}
 }
 
-// Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
-
+extension FavoritesPresentationModel: FavoritesAndWatchlistManagerDelegate {
+	func didModifiedFavorites(items: [MovieItem]) {
+//		viewController?.handleOutput(.)
+	}
+}

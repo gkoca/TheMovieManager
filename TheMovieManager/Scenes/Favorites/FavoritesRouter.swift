@@ -16,6 +16,10 @@ class FavoritesRouter: FavoritesRouterProtocol {
 
 	func navigate(_ route: FavoritesRoutes) {
 		switch route {
+		case .detail(let item):
+			DetailBuilder.build(item: item) { (detail) in
+				self.viewController.parent?.show(detail, sender: self)
+			}
 		}
 	}
 }

@@ -85,5 +85,7 @@
 	<string>$(LOG_LEVEL)</string>
 	<key>AUTHENTICATE</key>
 	<string>$(AUTHENTICATE)</string>
+	<key>BASE_IMAGE_URL</key>
+	<string>$(BASE_IMAGE_URL)</string>
 </dict>
 </plist>

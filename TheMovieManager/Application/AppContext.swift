@@ -11,4 +11,5 @@ class AppContext {
 	static let main = AppContext()
 	
 	var sessionId: String?
+	var accountId: Int?
 }

@@ -5,6 +5,8 @@
 //  Created by Gökhan KOCA on 10.04.2021.
 //
 
+import Foundation
+
 class BaseResponse: Decodable {
 	let success: Bool?
 	let statusCode: Int?
@@ -55,7 +57,22 @@ class CreateSessionResponse: BaseResponse {
 	}
 }
 
-class SearchResponse: BaseResponse {
+class Account: BaseResponse {
+	
+	var id: Int?
+	
+	required init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		try super.init(from: decoder)
+		id = try container.decodeIfPresent(Int.self, forKey: .id)
+	}
+	
+	enum CodingKeys: String, CodingKey {
+		case id
+	}
+}
+
+class MovieListResponse: BaseResponse {
 	var page: Int = 1
 	var results: [MovieItem] = []
 	var totalResults: Int = 0
@@ -78,7 +95,7 @@ class SearchResponse: BaseResponse {
 	}
 }
 
-struct MovieItem: Decodable {
+class MovieItem: NSObject, Decodable {
 	let id: Int?
 	let poster_path: String?
 	let backdrop_path: String?

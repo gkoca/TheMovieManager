@@ -67,12 +67,7 @@ public enum ParameterEncoding {
 	case urlEncoding
 	case jsonEncoding
 	
-	public func encode(urlRequest: inout URLRequest, parameters: [String: Any]?, apiKey: String?) {
-		if let apiKey = apiKey {
-			let apikeyParam = ["api_key": apiKey]
-			URLParameterEncoder().encode(urlRequest: &urlRequest, with: apikeyParam)
-		}
-		
+	public func encode(urlRequest: inout URLRequest, parameters: [String: Any]?) {
 		switch self {
 		case .urlEncoding:
 			guard let urlParameters = parameters else { return }
@@ -90,17 +85,13 @@ enum HTTPMethod: String {
 	case delete = "DELETE"
 }
 
-public enum HTTPTask {
-	case requestParameters(parameters: [String: Any]?, encoding: ParameterEncoding)
-}
-
 protocol Caller {
 	var apiKey: String? { get }
 	var baseURL: URL { get }
 	var path: String { get }
 	var method: HTTPMethod { get }
-	var parameters: [String: Any] { get }
-	var task: HTTPTask { get }
+	var body: [String: Any]? { get }
+	var queryString: [String: Any]? { get }
 	var mock: Data? { get }
 }
 
@@ -116,10 +107,13 @@ extension Caller {
 		request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 		request.addValue("application/json", forHTTPHeaderField: "Accept")
-		switch task {
-		case .requestParameters(let parameters, let encoding):
-			encoding.encode(urlRequest: &request, parameters: parameters, apiKey: apiKey)
+		if let apiKey = apiKey {
+			let apikeyParam = ["api_key": apiKey]
+			ParameterEncoding.urlEncoding.encode(urlRequest: &request, parameters: apikeyParam)
 		}
+		
+		ParameterEncoding.urlEncoding.encode(urlRequest: &request, parameters: queryString)
+		ParameterEncoding.jsonEncoding.encode(urlRequest: &request, parameters: body)
 		return request
 	}
 	

@@ -13,7 +13,12 @@ enum API: Caller {
 	case createSession(requestToken: String)
 	case validateWithLogin(userName: String, password: String, requestToken: String)
 	case deleteSession(sessionId: String)
+	case account(sessionId: String)
 	case search(page: Int, query: String)
+	case favorites(page: Int, accountId: Int, sessionId: String)
+	case favoriteFlag(accountId: Int, movieId: Int, isFavorite: Bool, sessionId: String)
+	case watchlist(page: Int, accountId: Int, sessionId: String)
+	case watchlistFlag(accountId: Int, movieId: Int, addWatchlist: Bool, sessionId: String)
 	
 	var apiKey: String? {
 		return Bundle.main.infoForKey("API_KEY")
@@ -34,8 +39,18 @@ enum API: Caller {
 			return "authentication/token/validate_with_login"
 		case .deleteSession:
 			return "/authentication/session"
+		case .account:
+			return "/account"
 		case .search:
 			return "/search/movie"
+		case .favorites(_, let accountId, _):
+			return "/account/\(accountId)/favorite/movies"
+		case .favoriteFlag(let accountId, _, _, _):
+			return "/account/\(accountId)/favorite"
+		case .watchlist(_, let accountId, _):
+			return "/account/\(accountId)/watchlist/movies"
+		case .watchlistFlag(let accountId, _, _, _):
+			return "/account/\(accountId)/watchlist"
 		}
 	}
 	
@@ -53,12 +68,41 @@ enum API: Caller {
 			return .get
 		case .deleteSession:
 			return .delete
+		case .account:
+			return .get
 		case .search:
 			return .get
+		case .favorites, .watchlist:
+			return .get
+		case .favoriteFlag, .watchlistFlag:
+			return .post
 		}
 	}
 	
-	var parameters: [String : Any] {
+	var body: [String : Any]? {
+		switch self {
+		case .deleteSession(let sessionId):
+			return [
+				"session_id" : sessionId
+			]
+		case .favoriteFlag(_, let movieId, let isFavorite, _):
+			return [
+				"media_type": "movie",
+				"media_id": movieId,
+				"favorite": isFavorite
+			]
+		case .watchlistFlag(_, let movieId, let addWatchlist, _):
+			return [
+				"media_type": "movie",
+				"media_id": movieId,
+				"watchlist": addWatchlist
+			]
+		default:
+			return nil
+		}
+	}
+	
+	var queryString: [String : Any]? {
 		switch self {
 		case .createSession(let token):
 			return ["request_token":token]
@@ -68,34 +112,35 @@ enum API: Caller {
 				"username" : userName,
 				"password": password
 			]
-		case .deleteSession(let sessionId):
-			return [
-				"session_id" : sessionId
-			]
 		case .search(let page, let query):
 			return [
 				"page" : page,
 				"query" : query
 			]
+		case .account(let sessionId):
+			return [
+				"session_id" : sessionId
+			]
+		case .favorites(let page, _, let sessionId):
+			return [
+				"page" : page,
+				"session_id" : sessionId
+			]
+		case .watchlist(let page, _, let sessionId):
+			return [
+				"page" : page,
+				"session_id" : sessionId
+			]
+		case .favoriteFlag(_, _, _, let sessionId):
+			return [
+				"session_id" : sessionId
+			]
+		case .watchlistFlag(_, _, _, let sessionId):
+			return [
+				"session_id" : sessionId
+			]
 		default:
-			return [:]
-		}
-	}
-	
-	var task: HTTPTask {
-		switch self {
-		case .createRequestToken:
-			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
-		case .createSession:
-			// return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
-			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
-		case .validateWithLogin:
-			// return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
-			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
-		case .deleteSession:
-			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
-		case .search:
-			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
+			return nil
 		}
 	}
 	

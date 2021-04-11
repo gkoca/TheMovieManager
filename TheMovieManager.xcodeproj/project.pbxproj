@@ -79,6 +79,10 @@
 		E81EFD28262226D6008C2888 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD22262226D6008C2888 /* DetailViewController.swift */; };
 		E81EFD29262226D6008C2888 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD23262226D6008C2888 /* DetailBuilder.swift */; };
 		E81EFD3026233BBE008C2888 /* SearchMovieBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */; };
+		E81EFD342623525D008C2888 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD332623525D008C2888 /* ImageRepository.swift */; };
+		E81EFD3B26235F9B008C2888 /* FavoritesAndWatchlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */; };
+		E81EFD3F26235FAA008C2888 /* WatchlistBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */; };
+		E81EFD4526237906008C2888 /* Multicastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD4426237906008C2888 /* Multicastable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +172,10 @@
 		E81EFD22262226D6008C2888 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E81EFD23262226D6008C2888 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 		E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieBusinessModel.swift; sourceTree = "<group>"; };
+		E81EFD332623525D008C2888 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAndWatchlistManager.swift; sourceTree = "<group>"; };
+		E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistBusinessModel.swift; sourceTree = "<group>"; };
+		E81EFD4426237906008C2888 /* Multicastable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multicastable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +328,8 @@
 			isa = PBXGroup;
 			children = (
 				E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */,
+				E81EFD3A26235F9B008C2888 /* FavoritesAndWatchlistManager.swift */,
+				E81EFD3E26235FAA008C2888 /* WatchlistBusinessModel.swift */,
 				E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */,
 			);
 			path = BusinessModels;
@@ -339,6 +349,8 @@
 				E81EFC912620D76D008C2888 /* Logger.swift */,
 				E81EFCA02620DDD6008C2888 /* Loading.swift */,
 				E81EFCD32621CDAA008C2888 /* TMDBHelper.swift */,
+				E81EFD332623525D008C2888 /* ImageRepository.swift */,
+				E81EFD4426237906008C2888 /* Multicastable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -566,6 +578,7 @@
 				E81EFCE326220599008C2888 /* MainContracts.swift in Sources */,
 				E81EFCCA2621C190008C2888 /* LoginViaWebBuilder.swift in Sources */,
 				E81EFC892620D05C008C2888 /* LoginPresentationModel.swift in Sources */,
+				E81EFD4526237906008C2888 /* Multicastable.swift in Sources */,
 				E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
 				E81EFD0A262226A7008C2888 /* WatchlistContracts.swift in Sources */,
@@ -587,6 +600,7 @@
 				E81EFC5B2620CB23008C2888 /* BaseViewController.swift in Sources */,
 				E81EFC9D2620DCEF008C2888 /* Caller.swift in Sources */,
 				E81EFCCE2621C256008C2888 /* AppContext.swift in Sources */,
+				E81EFD3B26235F9B008C2888 /* FavoritesAndWatchlistManager.swift in Sources */,
 				E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */,
 				E81EFCB72621B163008C2888 /* API.swift in Sources */,
 				E81EFCF826222691008C2888 /* FavoritesPresentationModel.swift in Sources */,
@@ -598,9 +612,11 @@
 				E81EFC8D2620D05C008C2888 /* LoginBuilder.swift in Sources */,
 				E81EFD19262226BD008C2888 /* SearchViewController.swift in Sources */,
 				E81EFCE526220599008C2888 /* MainBuilder.swift in Sources */,
+				E81EFD3F26235FAA008C2888 /* WatchlistBusinessModel.swift in Sources */,
 				E81EFCC82621C190008C2888 /* LoginViaWebContracts.swift in Sources */,
 				E81EFC8A2620D05C008C2888 /* LoginRouter.swift in Sources */,
 				E81EFBEE2620C7C3008C2888 /* SceneDelegate.swift in Sources */,
+				E81EFD342623525D008C2888 /* ImageRepository.swift in Sources */,
 				E81EFCFA26222691008C2888 /* FavoritesContracts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

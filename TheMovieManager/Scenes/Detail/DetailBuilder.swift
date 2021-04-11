@@ -8,10 +8,10 @@
 import UIKit
 
 class DetailBuilder: BaseBuilder {
-
-
-	static func build(completion: @escaping ((DetailViewController) -> Void)) {
-		let presentationModel = DetailPresentationModel() // init with businessModel(s)
+	static func build(item: MovieItem, completion: @escaping ((DetailViewController) -> Void)) {
+		let watchlistBusinessModel = WatchlistBusinessModel()
+		let presentationModel = DetailPresentationModel(item: item,
+														watchlistBusinessModel: watchlistBusinessModel)
 		presentationModel.loadScene { viewController in
 			completion(viewController)
 		}

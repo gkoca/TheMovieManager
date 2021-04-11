@@ -62,7 +62,7 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 				AppContext.main.sessionId = sessionId
 				completion(true, sessionId)
 			} else {
-				let responseMessage = response?.statusMessage ?? "unknown error"
+				let responseMessage = response?.statusMessage ?? error?.localizedDescription ?? "unknown error"
 				completion(false, responseMessage)
 			}
 		}
@@ -96,15 +96,28 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 					if response?.success ?? false, let token = response?.token {
 						self?.createSession(with: token) { (isSuccess2, responseMessage2) in
 							if isSuccess {
-								self?.delegate?.handleOutput(.loginSuccess)
+								self?.getAccount(sessionId: responseMessage2)
 							} else {
 								self?.delegate?.handleOutput(.loginFailed(message: responseMessage2))
 							}
 						}
 					} else {
-						self?.delegate?.handleOutput(.loginFailed(message: response?.statusMessage ?? "unknown error"))
+						self?.delegate?.handleOutput(.loginFailed(message: response?.statusMessage ?? error?.localizedDescription ?? "unknown error"))
 					}
 				}
+		}
+	}
+	
+	private func getAccount(sessionId: String) {
+		API.account(sessionId: sessionId).call { [weak self] (response: Account?, error) in
+			if let id = response?.id {
+				AppContext.main.accountId = id
+				FavoritesAndWatchlistManager.shared.load {
+					self?.delegate?.handleOutput(.loginSuccess)
+				}
+			} else {
+				self?.delegate?.handleOutput(.loginFailed(message: response?.statusMessage ?? error?.localizedDescription ?? "unknown error"))
+			}
 		}
 	}
 }

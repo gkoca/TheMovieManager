@@ -24,14 +24,12 @@ final class MainViewController: BaseTabbarController {
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		delegate = self
 		setupNavigationBar()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		title = tabBar.items?.first?.title
-		navigationController?.setNavigationBarHidden(true, animated: false)
 	}
 
 	// MARK: - custom methods
@@ -55,16 +53,5 @@ extension MainViewController: MainViewControllerProtocol {
 		case .didLoadScenes(let search, let watchlist, let favorites):
 			viewControllers = [search, watchlist, favorites]
 		}
-	}
-}
-
-extension MainViewController: UITabBarControllerDelegate {
-	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-		if viewController is UINavigationController {
-			navigationController?.setNavigationBarHidden(true, animated: false)
-		} else {
-			navigationController?.setNavigationBarHidden(false, animated: false)
-		}
-		return true
 	}
 }

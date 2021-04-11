@@ -35,7 +35,7 @@ final class SearchMovieBusinessModel: BaseBusinessModel {
 // MARK: - SearchMovieBusinessModelProtocol methods
 extension  SearchMovieBusinessModel:  SearchMovieBusinessModelProtocol {
 	func search(page: Int, query: String) {
-		API.search(page: page, query: query).call(shoudShowLoading: false) { [weak self] (response: SearchResponse?, error) in
+		API.search(page: page, query: query).call(shoudShowLoading: false) { [weak self] (response: MovieListResponse?, error) in
 			if let response = response {
 				self?.delegate?.handleOutput(.didGetSearchResult(page: response.page,
 																 items: response.results,

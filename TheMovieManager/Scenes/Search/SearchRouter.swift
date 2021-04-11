@@ -18,6 +18,10 @@ class SearchRouter: SearchRouterProtocol {
 		switch route {
 		case .logout:
 			(viewController.view.window?.windowScene?.delegate as? SceneDelegate)?.presentLogin()
+		case .detail(let item):
+			DetailBuilder.build(item: item) { (detail) in
+				self.viewController.parent?.parent?.show(detail, sender: self)
+			}
 		}
 	}
 }

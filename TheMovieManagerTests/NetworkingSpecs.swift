@@ -62,6 +62,8 @@ class NetworkingSpec: QuickSpec {
 //http://dummy.restapiexample.com/api/v1/employees
 //http://dummy.restapiexample.com/api/v1/employee/1
 enum TestService: Caller {
+	
+	
 	case employees
 	case employee(id: String)
 	var apiKey: String? {
@@ -85,12 +87,12 @@ enum TestService: Caller {
 		return .get
 	}
 	
-	var parameters: [String : Any] {
-		return [:]
+	var body: [String : Any]? {
+		return nil
 	}
 	
-	var task: HTTPTask {
-		return .requestParameters(parameters: parameters, encoding: .urlEncoding)
+	var queryString: [String : Any]? {
+		return nil
 	}
 	
 	var mock: Data? {

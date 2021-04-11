@@ -11,7 +11,9 @@ import Foundation
 protocol FavoritesPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: FavoritesViewControllerProtocol? { get set }
 	var router: FavoritesRouterProtocol? { get set }
+	var items: [MovieItem] { get }
 	func navigate(_ route: FavoritesRoutes)
+	func didSelectItem(at index: Int)
 }
 
 enum FavoritesPresentationModelOutput {
@@ -30,5 +32,5 @@ protocol FavoritesRouterProtocol: BaseRouterProtocol {
 }
 
 enum FavoritesRoutes {
-	
+	case detail(item: MovieItem)
 }

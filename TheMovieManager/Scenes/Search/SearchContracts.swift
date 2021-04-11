@@ -11,11 +11,12 @@ import Foundation
 protocol SearchPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: SearchViewControllerProtocol? { get set }
 	var router: SearchRouterProtocol? { get set }
-	var items: [MovieItem] { get set }
+	var items: [MovieItem] { get }
 	func navigate(_ route: SearchRoutes)
 	func logout()
 	func search(query: String)
 	func loadMore()
+	func didSelectItem(at index: Int)
 }
 
 enum SearchPresentationModelOutput {
@@ -35,4 +36,5 @@ protocol SearchRouterProtocol: BaseRouterProtocol {
 
 enum SearchRoutes {
 	case logout
+	case detail(item: MovieItem)
 }

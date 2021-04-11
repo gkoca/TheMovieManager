@@ -59,6 +59,10 @@ final class SearchPresentationModel: BasePresentationModel {
 
 // MARK: - SearchPresentationModelProtocol methods
 extension SearchPresentationModel: SearchPresentationModelProtocol {
+	func didSelectItem(at index: Int) {
+		navigate(.detail(item: items[index]))
+	}
+	
 	func search(query: String) {
 		currentPage = 1
 		totalPage = 1
