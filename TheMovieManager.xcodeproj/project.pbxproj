@@ -46,7 +46,6 @@
 		E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC32621C190008C2888 /* LoginViaWebViewController.swift */; };
 		E81EFCCA2621C190008C2888 /* LoginViaWebBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCC42621C190008C2888 /* LoginViaWebBuilder.swift */; };
 		E81EFCCE2621C256008C2888 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCCD2621C256008C2888 /* AppContext.swift */; };
-		E81EFCD42621CDAA008C2888 /* TMDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCD32621CDAA008C2888 /* TMDBHelper.swift */; };
 		E81EFCE026220599008C2888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E81EFCDA26220599008C2888 /* Main.storyboard */; };
 		E81EFCE126220599008C2888 /* MainPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCDB26220599008C2888 /* MainPresentationModel.swift */; };
 		E81EFCE226220599008C2888 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFCDC26220599008C2888 /* MainRouter.swift */; };
@@ -132,7 +131,6 @@
 		E81EFCC32621C190008C2888 /* LoginViaWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebViewController.swift; sourceTree = "<group>"; };
 		E81EFCC42621C190008C2888 /* LoginViaWebBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViaWebBuilder.swift; sourceTree = "<group>"; };
 		E81EFCCD2621C256008C2888 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
-		E81EFCD32621CDAA008C2888 /* TMDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBHelper.swift; sourceTree = "<group>"; };
 		E81EFCDA26220599008C2888 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E81EFCDB26220599008C2888 /* MainPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresentationModel.swift; sourceTree = "<group>"; };
 		E81EFCDC26220599008C2888 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -205,12 +203,12 @@
 		E81EFBEA2620C7C3008C2888 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
-				E81EFC972620DC97008C2888 /* Networking */,
 				E81EFC232620C882008C2888 /* Application */,
 				E81EFC722620CE43008C2888 /* BusinessModels */,
 				E81EFC292620C908008C2888 /* Configurations */,
 				E81EFC792620CF76008C2888 /* Extensions */,
 				E81EFC902620D75E008C2888 /* Helpers */,
+				E81EFC972620DC97008C2888 /* Networking */,
 				E81EFC242620C88D008C2888 /* Resources */,
 				E81EFC622620CE18008C2888 /* Scenes */,
 			);
@@ -332,7 +330,6 @@
 			children = (
 				E81EFC912620D76D008C2888 /* Logger.swift */,
 				E81EFCA02620DDD6008C2888 /* Loading.swift */,
-				E81EFCD32621CDAA008C2888 /* TMDBHelper.swift */,
 				E81EFD332623525D008C2888 /* ImageRepository.swift */,
 				E81EFD4426237906008C2888 /* Multicastable.swift */,
 			);
@@ -549,7 +546,6 @@
 				E81EFD4526237906008C2888 /* Multicastable.swift in Sources */,
 				E81EFCA12620DDD6008C2888 /* Loading.swift in Sources */,
 				E81EFBEC2620C7C3008C2888 /* AppDelegate.swift in Sources */,
-				E81EFCD42621CDAA008C2888 /* TMDBHelper.swift in Sources */,
 				E81EFC8C2620D05C008C2888 /* LoginViewController.swift in Sources */,
 				E81EFCFB26222691008C2888 /* FavoritesAndWatchlistViewController.swift in Sources */,
 				E81EFC5F2620CBB7008C2888 /* main.swift in Sources */,

@@ -36,7 +36,6 @@ final class FavoritesAndWatchlistViewController: BaseViewController {
 			break
 		}
 	}
-
 }
 
 // MARK:- FavoritesAndWatchlistViewControllerProtocol methods
@@ -62,6 +61,7 @@ extension FavoritesAndWatchlistViewController: UITableViewDelegate, UITableViewD
 		
 		let item = items[indexPath.row]
 		cell.textLabel?.text = item.title
+		cell.imageView?.image = UIImage(named: "placeholderPortrait")
 		cell.imageView?.load(from: item.poster_path ?? "", placeholder: "placeholderPortrait")
 		return cell
 	}

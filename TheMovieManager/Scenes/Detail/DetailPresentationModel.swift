@@ -28,14 +28,14 @@ final class DetailPresentationModel: BasePresentationModel {
 	
 	var sceneLoadingHandler: (() -> Void)?
 	var item: MovieItem
-
+	
 	// MARK: - initialize with businessModel(s)
 	init(item: MovieItem) {
 		self.item = item
 		super.init()
 		FavoritesAndWatchlistManager.shared.addDelegate(self)
 	}
-
+	
 	func loadScene(completion: @escaping ((DetailViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
 		var viewController: DetailViewController? = storyBoard.instantiateViewController()
@@ -44,13 +44,10 @@ final class DetailPresentationModel: BasePresentationModel {
 		self.router = router
 		viewController?.presentationModel = self
 		viewController?.loadViewIfNeeded()
-//		sceneLoadingHandler = {
-			if let viewController = viewController {
-				completion(viewController)
-			}
-			viewController = nil
-//		}
-		// start loading process here
+		if let viewController = viewController {
+			completion(viewController)
+		}
+		viewController = nil
 	} 
 }
 
@@ -79,9 +76,7 @@ extension DetailPresentationModel: DetailPresentationModelProtocol {
 	}
 }
 
-// Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
-
 extension DetailPresentationModel: FavoritesAndWatchlistManagerDelegate {
 	func didChangeFavoriteStatus(item: MovieItem, isFavorite: Bool) {
 		if item.id == self.item.id {

@@ -36,10 +36,6 @@ final class MainPresentationModel: BasePresentationModel {
 		authentication.delegate = self
 	}
 	
-	deinit {
-		LOG("\(String(describing: type(of: self))) \(#function)")
-	}
-	
 	func loadScene(completion: @escaping ((MainViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 		var viewController: MainViewController? = storyBoard.instantiateViewController()

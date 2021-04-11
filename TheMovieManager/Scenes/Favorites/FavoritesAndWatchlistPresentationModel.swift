@@ -44,10 +44,6 @@ final class FavoritesAndWatchlistPresentationModel: BasePresentationModel {
 		FavoritesAndWatchlistManager.shared.addDelegate(self)
 	}
 	
-	deinit {
-		LOG("\(String(describing: type(of: self))) \(#function)")
-	}
-	
 	func loadScene(completion: @escaping ((FavoritesAndWatchlistViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "FavoritesAndWatchlist", bundle: nil)
 		var viewController: FavoritesAndWatchlistViewController? = storyBoard.instantiateViewController()

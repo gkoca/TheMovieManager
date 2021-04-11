@@ -63,7 +63,7 @@
                                             <constraint firstAttribute="height" constant="34" id="4So-7c-YBN"/>
                                         </constraints>
                                         <state key="normal" title="Login">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -87,7 +87,7 @@
                                             <constraint firstAttribute="height" constant="34" id="UY9-cP-ex2"/>
                                         </constraints>
                                         <state key="normal" title="Login via Website">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -129,7 +129,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="amaris_logo" width="750" height="338"/>
+        <image name="amaris_logo" width="1000" height="450"/>
         <image name="play.tv" width="16" height="13"/>
         <namedColor name="AccentColor">
             <color red="0.15299999713897705" green="0.14900000393390656" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

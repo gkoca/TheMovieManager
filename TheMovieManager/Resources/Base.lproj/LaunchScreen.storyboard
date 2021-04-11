@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +25,7 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="amaris_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-Ug-f2I">
                                 <rect key="frame" x="0.0" y="766" width="414" height="80"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="NMb-Ke-feI"/>
                                 </constraints>
@@ -46,7 +48,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="amaris_logo" width="750" height="338"/>
+        <image name="amaris_logo" width="1000" height="450"/>
+        <namedColor name="AccentColor">
+            <color red="0.15299999713897705" green="0.14900000393390656" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

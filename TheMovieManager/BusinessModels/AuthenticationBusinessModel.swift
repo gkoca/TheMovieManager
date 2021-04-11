@@ -36,10 +36,6 @@ final class AuthenticationBusinessModel: BaseBusinessModel {
 			self.baseDelegate = newValue
 		}
 	}
-	
-	deinit {
-		LOG("\(#function) \(String(describing: self))")
-	}
 }
 
 // MARK: - AuthenticationBusinessModelProtocol methods
@@ -76,6 +72,7 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 		API.deleteSession(sessionId: sessionId).call { [weak self] (response: BaseResponse?, error) in
 			if response?.success ?? false {
 				AppContext.main.sessionId = nil
+				AppContext.main.accountId = nil
 				self?.delegate?.handleOutput(.logoutSuccess)
 			} else {
 				self?.delegate?.handleOutput(.logoutFailed(message: response?.statusMessage ?? error?.localizedDescription ?? "Unknown error"))

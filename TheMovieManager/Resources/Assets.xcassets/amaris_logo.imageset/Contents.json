@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Amaris Consulting Main Logo Blue.pdf",
+      "filename" : "Amaris Consulting Third Logo Black.svg",
       "idiom" : "universal"
     }
   ],
@@ -11,6 +11,6 @@
   },
   "properties" : {
     "preserves-vector-representation" : true,
-    "template-rendering-intent" : "original"
+    "template-rendering-intent" : "template"
   }
 }
