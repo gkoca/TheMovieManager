@@ -11,12 +11,15 @@ import Foundation
 protocol SearchPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: SearchViewControllerProtocol? { get set }
 	var router: SearchRouterProtocol? { get set }
+	var items: [MovieItem] { get set }
 	func navigate(_ route: SearchRoutes)
 	func logout()
+	func search(query: String)
+	func loadMore()
 }
 
 enum SearchPresentationModelOutput {
-	
+	case didGetMovies(isFresh: Bool)
 }
 
 // MARK: View

@@ -58,24 +58,48 @@ final class SearchViewController: BaseViewController {
 extension SearchViewController: SearchViewControllerProtocol {
 	func handleOutput(_ output:  SearchPresentationModelOutput) {
 		switch output {
+		case .didGetMovies(let isFresh):
+			tableView.reloadData()
+			if isFresh {
+				let topRow = IndexPath(row: 0,section: 0)
+				self.tableView.scrollToRow(at: topRow, at: .top, animated: false)
+			}
 		}
 	}
 }
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return presentationModel?.items.count ?? 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		guard
+			let items = presentationModel?.items,
+			let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell")
+		else { return UITableViewCell() }
+		
+		let item = items[indexPath.row]
+		let title = item.title ?? "no name"
+		let year = item.release_date?.prefix(4) ?? "----"
+		
+		cell.textLabel?.text = "\(title) - \(year)"
+		
+		if indexPath.row == items.count - 6 {
+			presentationModel?.loadMore()
+		}
+		
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
 	func updateSearchResults(for searchController: UISearchController) {
-		if let term = searchController.searchBar.text {
-			LOG("\(#function) \(term)")
-//			presentationModel?.search(term: term)
+		if let query = searchController.searchBar.text, query.count > 2 {
+			presentationModel?.search(query: query)
 		}
 	}
 }

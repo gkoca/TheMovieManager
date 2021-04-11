@@ -13,6 +13,7 @@ enum API: Caller {
 	case createSession(requestToken: String)
 	case validateWithLogin(userName: String, password: String, requestToken: String)
 	case deleteSession(sessionId: String)
+	case search(page: Int, query: String)
 	
 	var apiKey: String? {
 		return Bundle.main.infoForKey("API_KEY")
@@ -33,6 +34,8 @@ enum API: Caller {
 			return "authentication/token/validate_with_login"
 		case .deleteSession:
 			return "/authentication/session"
+		case .search:
+			return "/search/movie"
 		}
 	}
 	
@@ -50,6 +53,8 @@ enum API: Caller {
 			return .get
 		case .deleteSession:
 			return .delete
+		case .search:
+			return .get
 		}
 	}
 	
@@ -66,6 +71,11 @@ enum API: Caller {
 		case .deleteSession(let sessionId):
 			return [
 				"session_id" : sessionId
+			]
+		case .search(let page, let query):
+			return [
+				"page" : page,
+				"query" : query
 			]
 		default:
 			return [:]
@@ -84,6 +94,8 @@ enum API: Caller {
 			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		case .deleteSession:
 			return .requestParameters(parameters: parameters, encoding: .jsonEncoding)
+		case .search:
+			return .requestParameters(parameters: parameters, encoding: .urlEncoding)
 		}
 	}
 	

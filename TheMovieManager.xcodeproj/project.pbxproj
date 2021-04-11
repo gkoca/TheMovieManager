@@ -78,6 +78,7 @@
 		E81EFD27262226D6008C2888 /* DetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD21262226D6008C2888 /* DetailContracts.swift */; };
 		E81EFD28262226D6008C2888 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD22262226D6008C2888 /* DetailViewController.swift */; };
 		E81EFD29262226D6008C2888 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD23262226D6008C2888 /* DetailBuilder.swift */; };
+		E81EFD3026233BBE008C2888 /* SearchMovieBusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		E81EFD21262226D6008C2888 /* DetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContracts.swift; sourceTree = "<group>"; };
 		E81EFD22262226D6008C2888 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E81EFD23262226D6008C2888 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
+		E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieBusinessModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				E81EFC732620CE56008C2888 /* AuthenticationBusinessModel.swift */,
+				E81EFD2F26233BBE008C2888 /* SearchMovieBusinessModel.swift */,
 			);
 			path = BusinessModels;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E81EFCC92621C190008C2888 /* LoginViaWebViewController.swift in Sources */,
 				E81EFCB72621B163008C2888 /* API.swift in Sources */,
 				E81EFCF826222691008C2888 /* FavoritesPresentationModel.swift in Sources */,
+				E81EFD3026233BBE008C2888 /* SearchMovieBusinessModel.swift in Sources */,
 				E81EFC7B2620CF95008C2888 /* Extensions.swift in Sources */,
 				E81EFC742620CE56008C2888 /* AuthenticationBusinessModel.swift in Sources */,
 				E81EFC4B2620CAF7008C2888 /* BaseBusinessModel.swift in Sources */,

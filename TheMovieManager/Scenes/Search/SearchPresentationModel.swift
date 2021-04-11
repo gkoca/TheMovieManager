@@ -25,22 +25,23 @@ final class SearchPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
-	var authentication: AuthenticationBusinessModelProtocol
+	var items: [MovieItem] = []
+	var searchBusinessModel: SearchMovieBusinessModelProtocol
+	var authBusinessModel: AuthenticationBusinessModelProtocol
 	var sceneLoadingHandler: (() -> Void)?
-
-	// MARK: - initialize with businessModel(s)
-	init(with businessModel: AuthenticationBusinessModelProtocol) {
-		authentication = businessModel
-		super.init()
-		authentication.delegate = self
-	}
+	var currentPage = 1
+	var currentQuery = ""
+	var totalPage = 1
 	
-	deinit {
-		LOG("\(String(describing: type(of: self))) \(#function)")
+	// MARK: - initialize with businessModel(s)
+	init(authentication: AuthenticationBusinessModelProtocol, search: SearchMovieBusinessModelProtocol) {
+		authBusinessModel = authentication
+		searchBusinessModel = search
+		super.init()
+		authBusinessModel.delegate = self
+		searchBusinessModel.delegate = self
 	}
 
-	/// you should fire ´sceneLoadingHandler´ after loading process completed. 
-	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((SearchViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Search", bundle: nil)
 		var viewController: SearchViewController? = storyBoard.instantiateViewController()
@@ -49,20 +50,31 @@ final class SearchPresentationModel: BasePresentationModel {
 		self.router = router
 		viewController?.presentationModel = self
 		viewController?.loadViewIfNeeded()
-//		sceneLoadingHandler = {
 		if let viewController = viewController {
 			completion(viewController)
 		}
 		viewController = nil
-//		}
-		// start loading process here
 	} 
 }
 
 // MARK: - SearchPresentationModelProtocol methods
 extension SearchPresentationModel: SearchPresentationModelProtocol {
+	func search(query: String) {
+		currentPage = 1
+		totalPage = 1
+		currentQuery = query
+		searchBusinessModel.search(page: currentPage, query: query)
+	}
+	
+	func loadMore() {
+		if currentPage < totalPage {
+			currentPage += 1
+			searchBusinessModel.search(page: currentPage, query: currentQuery)
+		}
+	}
+	
 	func logout() {
-		authentication.logout()
+		authBusinessModel.logout()
 	}
 	
 	func navigate(_ route: SearchRoutes) {
@@ -70,7 +82,6 @@ extension SearchPresentationModel: SearchPresentationModelProtocol {
 	}
 }
 
-// Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
 extension SearchPresentationModel: AuthenticationBusinessModelDelegate {
 	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
@@ -81,6 +92,23 @@ extension SearchPresentationModel: AuthenticationBusinessModelDelegate {
 			navigate(.logout)
 		default:
 			break
+		}
+	}
+}
+
+extension SearchPresentationModel: SearchMovieBusinessModelDelegate {
+	func handleOutput(_ output: SearchMovieBusinessModelOutput) {
+		switch output {
+		case .didGetSearchResult(let page, let items, let total):
+			totalPage = total
+			var isFresh = true
+			if page > 1 {
+				self.items.append(contentsOf: items)
+				isFresh = false
+			} else {
+				self.items = items
+			}
+			viewController?.handleOutput(.didGetMovies(isFresh: isFresh))
 		}
 	}
 }

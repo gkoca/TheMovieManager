@@ -10,7 +10,8 @@ import UIKit
 class SearchBuilder: BaseBuilder {
 	static func build(completion: @escaping ((SearchViewController) -> Void)) {
 		let authentication = AuthenticationBusinessModel()
-		let presentationModel = SearchPresentationModel(with: authentication)
+		let searchBusinessModel = SearchMovieBusinessModel()
+		let presentationModel = SearchPresentationModel(authentication: authentication, search: searchBusinessModel)
 		presentationModel.loadScene { viewController in
 			completion(viewController)
 		}
