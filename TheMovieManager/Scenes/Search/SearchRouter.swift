@@ -16,6 +16,8 @@ class SearchRouter: SearchRouterProtocol {
 
 	func navigate(_ route: SearchRoutes) {
 		switch route {
+		case .logout:
+			(viewController.view.window?.windowScene?.delegate as? SceneDelegate)?.presentLogin()
 		}
 	}
 }

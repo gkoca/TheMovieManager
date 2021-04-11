@@ -39,14 +39,16 @@ final class LoginPresentationModel: BasePresentationModel {
 	
 	func loadScene(completion: @escaping ((LoginViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-		let viewController: LoginViewController = storyBoard.instantiateViewController()
-		let router = LoginRouter(viewController: viewController)
+		var viewController: LoginViewController? = storyBoard.instantiateViewController()
+		let router = LoginRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
-		
-		completion(viewController)
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
+		if let viewController = viewController {
+			completion(viewController)
+		}
+		viewController = nil
 	} 
 }
 

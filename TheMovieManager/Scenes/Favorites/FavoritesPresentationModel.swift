@@ -40,14 +40,17 @@ final class FavoritesPresentationModel: BasePresentationModel {
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((FavoritesViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Favorites", bundle: nil)
-		let viewController: FavoritesViewController = storyBoard.instantiateViewController()
-		let router = FavoritesRouter(viewController: viewController)
+		var viewController: FavoritesViewController? = storyBoard.instantiateViewController()
+		let router = FavoritesRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
 //		sceneLoadingHandler = {
+		if let viewController = viewController {
 			completion(viewController)
+		}
+		viewController = nil
 //		}
 		// start loading process here
 	} 

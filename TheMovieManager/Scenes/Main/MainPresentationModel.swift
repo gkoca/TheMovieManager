@@ -27,7 +27,6 @@ final class MainPresentationModel: BasePresentationModel {
 	}
 	
 	var authentication: AuthenticationBusinessModelProtocol
-	
 	var sceneLoadingHandler: (() -> Void)?
 	
 	// MARK: - initialize with businessModel(s)
@@ -43,27 +42,31 @@ final class MainPresentationModel: BasePresentationModel {
 	
 	func loadScene(completion: @escaping ((MainViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-		let viewController: MainViewController = storyBoard.instantiateViewController()
-		let router = MainRouter(viewController: viewController)
+		var viewController: MainViewController? = storyBoard.instantiateViewController()
+		let router = MainRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
 		sceneLoadingHandler = {
-			completion(viewController)
+			if let viewController = viewController {
+				completion(viewController)
+			}
+			viewController = nil
 		}
 		createTabScenes()
 	}
 	
 	func createTabScenes() {
-		var search: SearchViewController?
+		var search: UINavigationController?
 		var watchlist: WatchlistViewController?
 		var favorites: FavoritesViewController?
 		
 		let group = DispatchGroup()
 		group.enter()
 		SearchBuilder.build { (searchViewController) in
-			search = searchViewController
+			let navController = UINavigationController(rootViewController: searchViewController)
+			search = navController
 			group.leave()
 		}
 		group.enter()
@@ -96,9 +99,7 @@ extension MainPresentationModel: MainPresentationModelProtocol {
 	}
 }
 
-// Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
-
 extension MainPresentationModel:AuthenticationBusinessModelDelegate {
 	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
 		switch output {

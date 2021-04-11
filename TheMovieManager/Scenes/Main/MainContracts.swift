@@ -5,7 +5,7 @@
 //  Created by Gökhan KOCA on 10.04.2021.
 //
 
-import Foundation
+import UIKit
 
 // MARK: Presenter
 protocol MainPresentationModelProtocol: BasePresentationModelProtocol {
@@ -16,9 +16,9 @@ protocol MainPresentationModelProtocol: BasePresentationModelProtocol {
 }
 
 enum MainPresentationModelOutput {
-	case didLoadScenes(search: SearchViewController,
-					   watchlist: WatchlistViewController,
-					   favorites: FavoritesViewController)
+	case didLoadScenes(search: UIViewController,
+					   watchlist: UIViewController,
+					   favorites: UIViewController)
 }
 
 // MARK: View

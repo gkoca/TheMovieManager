@@ -25,11 +25,14 @@ final class SearchPresentationModel: BasePresentationModel {
 			self.baseRouter = newValue
 		}
 	}
+	var authentication: AuthenticationBusinessModelProtocol
 	var sceneLoadingHandler: (() -> Void)?
 
 	// MARK: - initialize with businessModel(s)
-	override init() {
+	init(with businessModel: AuthenticationBusinessModelProtocol) {
+		authentication = businessModel
 		super.init()
+		authentication.delegate = self
 	}
 	
 	deinit {
@@ -40,14 +43,17 @@ final class SearchPresentationModel: BasePresentationModel {
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((SearchViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Search", bundle: nil)
-		let viewController: SearchViewController = storyBoard.instantiateViewController()
-		let router = SearchRouter(viewController: viewController)
+		var viewController: SearchViewController? = storyBoard.instantiateViewController()
+		let router = SearchRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
 //		sceneLoadingHandler = {
+		if let viewController = viewController {
 			completion(viewController)
+		}
+		viewController = nil
 //		}
 		// start loading process here
 	} 
@@ -55,6 +61,10 @@ final class SearchPresentationModel: BasePresentationModel {
 
 // MARK: - SearchPresentationModelProtocol methods
 extension SearchPresentationModel: SearchPresentationModelProtocol {
+	func logout() {
+		authentication.logout()
+	}
+	
 	func navigate(_ route: SearchRoutes) {
 		router?.navigate(route)
 	}
@@ -62,4 +72,15 @@ extension SearchPresentationModel: SearchPresentationModelProtocol {
 
 // Conform businessModelDelegates
 // MARK: - BusinessModelDelegate methods
-
+extension SearchPresentationModel: AuthenticationBusinessModelDelegate {
+	func handleOutput(_ output: AuthenticationBusinessModelOutput) {
+		switch output {
+		case .logoutFailed(let message):
+			viewController?.didFailure(errorText: message)
+		case .logoutSuccess:
+			navigate(.logout)
+		default:
+			break
+		}
+	}
+}

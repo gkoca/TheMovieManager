@@ -40,13 +40,16 @@ final class LoginViaWebPresentationModel: BasePresentationModel {
 
 	func loadScene(completion: @escaping ((LoginViaWebViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "LoginViaWeb", bundle: nil)
-		let viewController: LoginViaWebViewController = storyBoard.instantiateViewController()
-		let router = LoginViaWebRouter(viewController: viewController)
+		var viewController: LoginViaWebViewController? = storyBoard.instantiateViewController()
+		let router = LoginViaWebRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
-		completion(viewController)
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
+		if let viewController = viewController {
+			completion(viewController)
+		}
+		viewController = nil
 	}
 }
 

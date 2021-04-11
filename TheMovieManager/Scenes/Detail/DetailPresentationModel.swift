@@ -36,14 +36,17 @@ final class DetailPresentationModel: BasePresentationModel {
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((DetailViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Detail", bundle: nil)
-		let viewController: DetailViewController = storyBoard.instantiateViewController()
-		let router = DetailRouter(viewController: viewController)
+		var viewController: DetailViewController? = storyBoard.instantiateViewController()
+		let router = DetailRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
 		sceneLoadingHandler = {
-			completion(viewController)
+			if let viewController = viewController {
+				completion(viewController)
+			}
+			viewController = nil
 		}
 		// start loading process here
 	} 

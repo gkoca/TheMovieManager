@@ -12,6 +12,7 @@ protocol SearchPresentationModelProtocol: BasePresentationModelProtocol {
 	var viewController: SearchViewControllerProtocol? { get set }
 	var router: SearchRouterProtocol? { get set }
 	func navigate(_ route: SearchRoutes)
+	func logout()
 }
 
 enum SearchPresentationModelOutput {
@@ -30,5 +31,5 @@ protocol SearchRouterProtocol: BaseRouterProtocol {
 }
 
 enum SearchRoutes {
-	
+	case logout
 }

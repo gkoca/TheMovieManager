@@ -40,14 +40,17 @@ final class WatchlistPresentationModel: BasePresentationModel {
 	/// if you don't have loading process, you may send ´viewController´ directly via ´completion´
 	func loadScene(completion: @escaping ((WatchlistViewController) -> Void)) {
 		let storyBoard = UIStoryboard(name: "Watchlist", bundle: nil)
-		let viewController: WatchlistViewController = storyBoard.instantiateViewController()
-		let router = WatchlistRouter(viewController: viewController)
+		var viewController: WatchlistViewController? = storyBoard.instantiateViewController()
+		let router = WatchlistRouter(viewController: viewController!)
 		self.viewController = viewController
 		self.router = router
-		viewController.presentationModel = self
-		viewController.loadViewIfNeeded()
+		viewController?.presentationModel = self
+		viewController?.loadViewIfNeeded()
 //		sceneLoadingHandler = {
+		if let viewController = viewController {
 			completion(viewController)
+		}
+		viewController = nil
 //		}
 		// start loading process here
 	} 
