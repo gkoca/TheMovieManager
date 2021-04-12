@@ -106,6 +106,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 		presentationModel?.didSelectItem(at: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
+	
+	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+		searchController.searchBar.resignFirstResponder()
+	}
 }
 
 extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
