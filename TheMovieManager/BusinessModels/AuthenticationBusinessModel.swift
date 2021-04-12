@@ -53,10 +53,16 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 	}
 	
 	func createSession(with token: String, completion: @escaping (Bool, String) -> Void) {
-		API.createSession(requestToken: token).call { (response: CreateSessionResponse?, error) in
+		API.createSession(requestToken: token).call { [weak self] (response: CreateSessionResponse?, error) in
 			if response?.success ?? false, let sessionId = response?.sessionId {
 				AppContext.main.sessionId = sessionId
-				completion(true, sessionId)
+				self?.getAccount(sessionId: sessionId, completion: { (isSuccess, responseMessage) in
+					if isSuccess {
+						completion(true, sessionId)
+					} else {
+						completion(false, responseMessage)
+					}
+				})
 			} else {
 				let responseMessage = response?.statusMessage ?? error?.localizedDescription ?? "unknown error"
 				completion(false, responseMessage)
@@ -93,7 +99,13 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 					if response?.success ?? false, let token = response?.token {
 						self?.createSession(with: token) { (isSuccess2, responseMessage2) in
 							if isSuccess {
-								self?.getAccount(sessionId: responseMessage2)
+								self?.getAccount(sessionId: responseMessage2,completion: { (isSucceess, responseMessage3) in
+									if isSuccess {
+										self?.delegate?.handleOutput(.loginSuccess)
+									} else {
+										self?.delegate?.handleOutput(.loginFailed(message: responseMessage3))
+									}
+								})
 							} else {
 								self?.delegate?.handleOutput(.loginFailed(message: responseMessage2))
 							}
@@ -105,15 +117,15 @@ extension  AuthenticationBusinessModel:  AuthenticationBusinessModelProtocol {
 		}
 	}
 	
-	private func getAccount(sessionId: String) {
-		API.account(sessionId: sessionId).call { [weak self] (response: Account?, error) in
+	private func getAccount(sessionId: String, completion: @escaping (Bool, String) -> Void) {
+		API.account(sessionId: sessionId).call { (response: Account?, error) in
 			if let id = response?.id {
 				AppContext.main.accountId = id
 				FavoritesAndWatchlistManager.shared.load {
-					self?.delegate?.handleOutput(.loginSuccess)
+					completion(true,"\(id)")
 				}
 			} else {
-				self?.delegate?.handleOutput(.loginFailed(message: response?.statusMessage ?? error?.localizedDescription ?? "unknown error"))
+				completion(false, response?.statusMessage ?? error?.localizedDescription ?? "unknown error")
 			}
 		}
 	}

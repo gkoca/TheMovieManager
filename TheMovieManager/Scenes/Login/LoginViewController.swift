@@ -24,10 +24,10 @@ final class LoginViewController: BaseViewController {
 	// MARK: - initialize
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		#if DEBUG
-		usernameTextField.text = "amatur"
-		passwordTextField.text = "amatur123"
-		#endif
+//		#if DEBUG
+//		usernameTextField.text = "amatur"
+//		passwordTextField.text = "amatur123"
+//		#endif
 	}
 	
 	// MARK: - custom methods
